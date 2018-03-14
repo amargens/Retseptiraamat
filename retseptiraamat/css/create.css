@@ -1,0 +1,44 @@
+
+body {
+    
+}
+
+#showImage {
+    height: 200px;
+    width: 200px;
+}
+
+ul {
+    list-style: none;
+    background-color: #cccccc;
+}
+
+ul li {
+    background-color: #cccccc;
+    display: inline;
+}
+
+p {
+    display: inline;
+}
+
+.addedIng {
+    
+}
+
+.hidden {
+    display: none;
+}
+
+#addIngredient {
+    
+}
+#addAmount {
+    
+}
+#addUnit {
+    
+}
+.removeIng {
+    
+}

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>Retsepti Raamat</title>
     <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/<?php echo $title; ?>.css">
-    <script type = 'text/javascript' src = "<?php echo base_url();  ?>js/<?php echo $title; ?>.js"></script>
+    <script type = "text/javascript" src = "<?php echo base_url();  ?>js/<?php echo $title; ?>.js"></script>
 </head>
 <body>
 

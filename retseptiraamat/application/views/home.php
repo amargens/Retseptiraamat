@@ -12,17 +12,20 @@
         <h3><?php echo $recipe_item['_title']; ?></h3>
         <?php if ( file_exists(APPPATH.'assets/recipe_img/'.$recipe_item['_imgpath'])) {
                 $source = '../../application/assets/recipe_img/'.$recipe_item['_imgpath'];
-                echo "<img src='".$source."' width='200px' alt='Contect Image'>";
+                echo "<img src='".$source."' class='showImage' alt='Contect Image'>";
             }
             else {
-                echo "<img src='' width='200px' alt='Contect Image'>";
+                echo "<img src='../../application/assets/example_img.jpg' class='showImage' alt='Contect Image'>";
             }
             
         
         ?>
-        <div class="main">
-                <?php echo $recipe_item['_text']; ?>
+        <div class="text">
+                <?php echo mb_substr($recipe_item['_text'], 0, 25) . "..."; ?>
         </div>
+        
+        <p><?php echo anchor('Recipe/view/'.$recipe_item['_recipeID'], 'Loe Rohkem'); ?></p>
+        
 
     <?php endforeach; ?>
 </div>

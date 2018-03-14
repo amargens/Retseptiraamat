@@ -6,24 +6,25 @@ class Recipes extends CI_Model {
         parent::__construct(); 
     } 
       
-    public function get_recipes($slug = FALSE) {
-        if ($slug === FALSE) {
+    public function get_recipes($index = FALSE) {
+        if ($index === FALSE) {
             
-            $select = "SELECT * FROM retseptid;";
-            $sql = $select;
+            $sql = "SELECT * FROM retseptid;";
             $query = $this->db->query($sql);
             return $query->result_array();
         }
-
-        $query = $this->db->get_where('news', array('slug' => $slug));
-        return $query->row_array();
+        
+        $select = "SELECT retseptid._recipeID, retseptid._title, retseptid._imgpath, retseptid._text, 
+            toiduained._ingredient, toiduained._amount, toiduained._unit FROM retseptid";
+        $join = "INNER JOIN toiduained ON retseptid._recipeID=toiduained._recipeID
+            WHERE retseptid._recipeID = '$index' ;";
+            
+        $sql = $select." ".$join;
+        $query = $this->db->query($sql);
+        return $query->result_array();
     }
     
     public function set_recipe() {
-        
-        $select = "SELECT _imgpath FROM retseptid;";
-        $sql = $select;
-        $query = $this->db->query($sql);
         
         $imgname = $this->genRandString();
         
@@ -33,6 +34,9 @@ class Recipes extends CI_Model {
         
         $title = $this->input->post('title');
         $text = $this->input->post('text');
+        $ingredients = $this->input->post('ingredient');
+        $amounts = $this->input->post('amount');
+        $units = $this->input->post('unit');
         
         if ($this->setfile($imgname)) {
             $filename = $imgname.".".pathinfo($_FILES['imageUpload']['name'])['extension'];
@@ -40,8 +44,22 @@ class Recipes extends CI_Model {
             $values = "VALUES ('$title', '$filename', '$text');";
         
             $sql = $insert." ".$values;
+            $this->db->query($sql);
+            
+            $sql = "SELECT _recipeID FROM retseptid WHERE _imgpath = '$filename';";
+            $recipeID = $this->db->query($sql)->result_array();
+            
+            $length = sizeof($ingredients);
+            $id = $recipeID[0]['_recipeID'];
+            
+            for ($i = 0; $i < $length; $i++) {
+                $insert = "INSERT INTO toiduained (_recipeID, _ingredient, _amount, _unit)";
+                $values = "VALUES ('$id', '$ingredients[$i]', '$amounts[$i]', '$units[$i]');";
+                $sql = $insert." ".$values;
+                $this->db->query($sql);
+            }
 
-            return $this->db->query($sql);
+            return true;
         }
 
         return false;
