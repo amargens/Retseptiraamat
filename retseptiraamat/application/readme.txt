@@ -7,11 +7,11 @@ praeguse lahenduse andmebaas
 
 DROP TABLE IF EXISTS `retseptid`;
 CREATE TABLE IF NOT EXISTS `retseptid` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `_recipeID` int(11) NOT NULL AUTO_INCREMENT,
   `_title` char(50) NOT NULL,
   `_imgpath` char(50) DEFAULT NULL,
   `_text` text NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`_recipeID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `toiduained`;
@@ -21,6 +21,6 @@ CREATE TABLE IF NOT EXISTS `toiduained` (
   	`_ingredient` char(50) NOT NULL,
   	`_amount` char(50) DEFAULT NULL,
   	`_unit` char(50) NOT NULL,
-  	PRIMARY KEY (`id`),
+  	PRIMARY KEY (`_ingredientID`),
   	FOREIGN KEY (_recipeID) REFERENCES retseptid(_recipeID)
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
