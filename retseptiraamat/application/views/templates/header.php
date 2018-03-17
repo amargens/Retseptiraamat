@@ -17,7 +17,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div id="logobox">
-            <a href="<?php echo base_url();?>index.php/home/""><img src="<?php echo base_url(); ?>application/assets/logo.png" alt="logo"></a>
+            <a href="<?php echo base_url();?>index.php/home/"><img src="<?php echo base_url(); ?>application/assets/logo.png" alt="logo"></a>
         </div>
         <div>
             <ul class="nav navbar-nav">

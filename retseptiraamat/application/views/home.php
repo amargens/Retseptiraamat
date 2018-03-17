@@ -1,10 +1,12 @@
-<!DOCTYPE html>
 
-<div class="col-md-6 col-md-offset-2">
-    <?php
-    echo "<h2>Siia tuleb retsepti raamatu koduleht.</h2>";
-    ?>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <?php
+        echo "<h2>Siia tuleb retsepti raamatu koduleht.</h2>";
+        ?>
+    </div>
 </div>
+
 
 <div class="table-responsive col-md-8 col-md-offset-2">
     <table class="table">
