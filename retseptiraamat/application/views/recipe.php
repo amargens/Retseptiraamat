@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 
-<div>
+<div class="col-md-offset-4">
     <?php
     echo "<h2>Siia tuleb retsepti vaateleht.</h2>";
     ?>
 </div>
 
-<div>
+<div class="col-md-offset-4">
 
-    <h3><?php echo $recipe[0]['_title']; ?></h3>
+    <h3 col-md-6><?php echo $recipe[0]['_title']; ?></h3>
     <?php if ( file_exists(APPPATH.'assets/recipe_img/'.$recipe[0]['_imgpath'])) {
             $source = '../../../application/assets/recipe_img/'.$recipe[0]['_imgpath'];
             echo "<img src='".$source."' id='showImage' alt='Contect Image'>";
@@ -28,7 +28,7 @@
        
     <?php endforeach; ?>
     
-    <div class="text">
+    <div class="text col-md-6">
         <?php echo $recipe[0]['_text']; ?>
     </div>
 </div>
