@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<div>
+<div class="col-md-offset-4">
     <?php
     echo "<h2>Siia tuleb retsepti lisamine.</h2>";
     ?>
 </div>
 
-<div>
+<div class="col-md-offset-4">
     <?php echo validation_errors(); ?>
 
     <?php echo form_open('create/index', 'enctype="multipart/form-data"'); ?>
@@ -31,6 +31,11 @@
     <textarea name="text"></textarea><br />
     
     <input type="submit" name="submit" value="Lisa uus retsept" />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
 </form>
 </div>
