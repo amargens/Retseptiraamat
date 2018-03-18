@@ -21,9 +21,9 @@
         <img src="../../application/assets/example_img.jpg" id="showImage" alt="Contect Image"><br />
 
         <label >Lisa retsepti koostisosad:</label><br />
-        <input type="text" id="addIngredient" name="addIngredient" placeholder="Sisesta toiduaine"/>
-        <input type="text" id="addAmount" name="addAmount" placeholder="Sisesta kogus"/>
-        <input type="text" id="addUnit" name="addUnit" placeholder="Sisesta ühik"/>
+        <input type="text" title="addIngredient" id="addIngredient" name="addIngredient" placeholder="Sisesta toiduaine"/>
+        <input type="text" title="addAmount" id="addAmount" name="addAmount" placeholder="Sisesta kogus"/>
+        <input type="text" title="addUnit" id="addUnit" name="addUnit" placeholder="Sisesta ühik"/>
         <button type="button" id="addIng" >Lisa</button><br />
 
         <label >Lisatud koostisosad:</label>
