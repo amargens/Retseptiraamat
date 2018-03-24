@@ -8,6 +8,9 @@ class Create extends CI_Controller {
     }
     
     public function index() {
+        if(!$this->session->userdata('sisselogitud')){
+            redirect('/users/login');
+        }
     
         $this->load->helper('form');
         $this->load->library('form_validation');

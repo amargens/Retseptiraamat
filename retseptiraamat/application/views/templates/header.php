@@ -23,8 +23,33 @@
             <ul class="nav navbar-nav">
                 <li><a href="<?php echo base_url();?>index.php/home/"> Avaleht </a> </li>
                 <li><a href="<?php echo base_url();?>index.php/home/"> Kõik retseptid </a> </li>
-                <li><a href="<?php echo base_url();?>index.php/create/"> Retsepti lisamine </a> </li>
+                <?php if(!$this->session->userdata('sisselogitud')) : ?>
+                    <li><a href="<?php echo base_url();?>index.php/users/login"> Logi sisse </a> </li>
+                    <li><a href="<?php echo base_url();?>index.php/users/register/"> Loo kasutaja </a> </li>
+                <?php endif; ?>
+                <?php if($this->session->userdata('sisselogitud')) : ?>
+                    <li><a href="<?php echo base_url();?>index.php/create/"> Retsepti lisamine </a> </li>
+                    <li><a href="<?php echo base_url();?>index.php/users/logivalja"> Logi välja </a> </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
 </nav>
+
+<div class="container">
+    <?php if($this->session->flashdata('kasutaja_registreeritud')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('kasutaja_registreeritud').'</p>'; ?>
+    <?php endif; ?>
+
+    <?php if($this->session->flashdata('kasutaja_fail')): ?>
+        <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('kasutaja_fail').'</p>'; ?>
+    <?php endif; ?>
+
+    <?php if($this->session->flashdata('kasutaja_sisselogitud')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('kasutaja_sisselogitud').'</p>'; ?>
+    <?php endif; ?>
+
+    <?php if($this->session->flashdata('kasutaja_valjalogitud')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('kasutaja_valjalogitud').'</p>'; ?>
+    <?php endif; ?>
+</div>
