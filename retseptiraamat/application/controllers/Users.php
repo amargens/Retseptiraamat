@@ -19,6 +19,25 @@ class Users extends CI_Controller{
             //Parooli enkrüpteerimine
             $enc_parool = md5($this->input->post('parool'));
             $this->user_model->register($enc_parool);
+            $reg_email = $this->input->post('email');
+            $config = Array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'ssl://smtp.googlemail.com',
+                'smtp_port' => 465,
+                'smtp_user' => 'retseptikas@gmail.com',
+                'smtp_pass' => 'Retseptiraamat123',
+                'mailtype' => 'html',
+                'charset' => 'utf-8',
+                'wordwrap' => TRUE
+            );
+            $this->load->library('email', $config);
+            $this->email->initialize($config);
+            $this->email->from('retseptikas@gmail.com', 'Retseptiraamat');
+            $this->email->to($reg_email);
+            $this->email->subject('Retseptiraamatu teade');
+            $this->email->message("Tere, registreerumine retseptiraamatusse õnnestus! Meeldivat külastust!");
+            $this->email->set_newline("\r\n");
+            $this->email->send();
             $this->session->set_flashdata('kasutaja_registreeritud', 'Kasutaja registreeritud, võid logida sisse!');
             redirect('/home/index');
         }

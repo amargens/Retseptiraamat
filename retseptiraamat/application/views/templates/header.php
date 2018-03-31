@@ -52,4 +52,8 @@
     <?php if($this->session->flashdata('kasutaja_valjalogitud')): ?>
         <?php echo '<p class="alert alert-success">'.$this->session->flashdata('kasutaja_valjalogitud').'</p>'; ?>
     <?php endif; ?>
+
+    <?php if($this->session->flashdata('eba_otsing')): ?>
+        <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('eba_otsing').'</p>'; ?>
+    <?php endif; ?>
 </div>

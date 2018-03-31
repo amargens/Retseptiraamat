@@ -6,8 +6,16 @@
         ?>
     </div>
 </div>
-
-
+<div class="col-md-6 col-md-offset-2">
+    <form class="form-inline" role="form" action="<?php echo base_url().'index.php/home/keysearch'; ?>" method="post">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control" id="search" placeholder="Otsi retsepti...">
+            <span class="input-group-btn">
+            <button class="btn btn-default glyphicon-search" type="submit"></button>
+        </span>
+        </div>
+    </form>
+</div>
 <div class="table-responsive col-md-8 col-md-offset-2">
     <table class="table">
         <thead>

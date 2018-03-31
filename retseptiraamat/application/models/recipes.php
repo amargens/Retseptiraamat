@@ -88,6 +88,19 @@ class Recipes extends CI_Model {
         return move_uploaded_file( $_FILES['imageUpload']['tmp_name'], $target);
         
     }
+
+    public function keysearch($key) {
+        $this->db->select('*');
+        $this->db->from('retseptid');
+        $this->db->like('_title', $key);
+        $query = $this->db->get();
+        if($query ->num_rows() > 0) {
+            return $query->result_array();
+        }
+        else { //Kasutame siin else's sama asja, et errorit ei tuleks.
+            return $query->result_array();
+        }
+    }
     
 }
  
