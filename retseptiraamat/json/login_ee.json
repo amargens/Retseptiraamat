@@ -1,0 +1,13 @@
+{
+    "home":"Avaleht",
+    "all_recipes": "Kõik retseptid",
+    "map": "Retsepti kaart",
+    "login": "Logi sisse",
+    "logout": "Logi välja",
+    "register": "Loo kasutaja",
+    "create": "Retsepti lisamine",
+    "header": "Sisse logimine",
+    "username": "Sisesta kasutajanimi",
+    "psword": "Sisesta parool",
+    "loginBtn": "Logi sisse"
+}

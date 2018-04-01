@@ -16,16 +16,26 @@ class Home extends CI_Controller {
         $this->load->view('home', $data);
         $this->load->view('templates/footer', $data);
 	}
-
+    
     public function keysearch() {
-        $data['title'] = 'Otsing';
+        $data['title'] = 'home';
         $this->load->model('recipes');
         $key = $this->input->post('search');
+        
+        $cookie_lang = "lang";
+        $lang = "ee";
+        if(isset($_COOKIE[$cookie_lang])) {
+            $lang = $_COOKIE[$cookie_lang];
+        }
 
         if(isset($key) and !empty($key)){
             $data['recipes'] = $this->recipes->keysearch($key);
             if (empty($data['recipes'])) {
-                $this->session->set_flashdata('eba_otsing', 'Sellise nimega retsepte ei ole!');
+                if ($lang == "ee") {
+                    $this->session->set_flashdata('eba_otsing', 'Sellise nimega retsepte ei ole!');
+                } else if ($lang == "en") {
+                    $this->session->set_flashdata('eba_otsing', 'No recipes with that name!');
+                }
                 redirect('/home/index');
             }
             else {
@@ -35,8 +45,14 @@ class Home extends CI_Controller {
             }
         }
         else {
-            $this->session->set_flashdata('eba_otsing', 'Sellise nimega retsepte ei ole!');
+            if ($lang == "ee") {
+                $this->session->set_flashdata('eba_otsing', 'Sellise nimega retsepte ei ole!');
+            } else if ($lang == "en") {
+                $this->session->set_flashdata('eba_otsing', 'No recipes with that name!');
+            }
+            
             redirect('/home/index');
         }
     }
+    
 }

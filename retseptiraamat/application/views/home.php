@@ -1,15 +1,9 @@
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <?php
-        echo "<h2>Siia tuleb retsepti raamatu koduleht.</h2>";
-        ?>
-    </div>
-</div>
+
 <div class="col-md-6 col-md-offset-2">
     <form class="form-inline" role="form" action="<?php echo base_url().'index.php/home/keysearch'; ?>" method="post">
         <div class="input-group">
-            <input type="text" name="search" class="form-control" id="search" placeholder="Otsi retsepti...">
+            <input type="text" name="search" class="form-control" id="search" data-tag="search">
             <span class="input-group-btn">
             <button class="btn btn-default glyphicon-search" type="submit"></button>
         </span>
@@ -20,10 +14,10 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Nimi</th>
-                <th scope="col">Pilt</th>
-                <th scope="col">Tekst</th>
-                <th scope="col">Rohkem</th>
+                <th scope="col" data-tag="title"></th>
+                <th scope="col" data-tag="image"></th>
+                <th scope="col" data-tag="text"></th>
+                <th scope="col" data-tag="more"></th>
             </tr>
         </thead>
         <tbody>
@@ -48,7 +42,7 @@
                     </div>
                 </td>
                 <td>
-                    <p><?php echo anchor('Recipe/view/'.$recipe_item['_recipeID'], 'Loe Rohkem'); ?></p>
+                    <p><a href="<?php echo base_url();?>index.php/Recipe/view/<?php echo $recipe_item['_recipeID'];?>" data-tag="readmore"></a></p>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -1,9 +1,7 @@
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-        <?php
-        echo "<h2>Siia tuleb retsepti lisamine.</h2>";
-        ?>
+        <h2 data-tag="header_ee"></h2>
     </div>
 </div>
 
@@ -13,26 +11,52 @@
 
         <?php echo form_open('create/index', 'enctype="multipart/form-data"'); ?>
 
-        <label for="title">Sisesta pealkiri:</label>
-        <input type="text" name="title" /><br />
+        <label for="title_ee" data-tag="title_ee"></label>
+        <input type="text" name="title_ee" /><br />
 
-        <label for="imageUpload">Sisesta pilt:</label>
-        <input type="file" name="imageUpload" id="imageUpload">
+        <label for="imageUpload" data-tag="image_ee"></label>
+        <button type="button" id="imageUploadVis" data-tag="imageUploadBtn_ee"></button>
+        <p id="imageUploadvalue" data-tag="imageUploadvalue_ee"></p>
+        <input type="file" name="imageUpload" id="imageUpload" class = "inputhidden">
         <img src="../../application/assets/example_img.jpg" id="showImage" alt="Contect Image"><br />
 
-        <label >Lisa retsepti koostisosad:</label><br />
-        <input type="text" title="addIngredient" id="addIngredient" name="addIngredient" placeholder="Sisesta toiduaine"/>
-        <input type="text" title="addAmount" id="addAmount" name="addAmount" placeholder="Sisesta kogus"/>
-        <input type="text" title="addUnit" id="addUnit" name="addUnit" placeholder="Sisesta ühik"/>
-        <button type="button" id="addIng" >Lisa</button><br />
+        <label  data-tag="addIng_ee"></label><br />
+        <input type="text" title="addIngredient" id="addIngredient_ee" name="addIngredient_ee" placeholder="Sisesta toiduaine"/>
+        <input type="text" title="addAmount" id="addAmount_ee" name="addAmount_ee" placeholder="Sisesta kogus"/>
+        <input type="text" title="addUnit" id="addUnit_ee" name="addUnit_ee" placeholder="Sisesta ühik"/>
+        <button type="button" id="addIng_ee"  data-tag="addbtn_ee"></button><br />
 
-        <label >Lisatud koostisosad:</label>
-        <ul id="addedIngList" ></ul>
+        <label  data-tag="addedIng_ee"></label>
+        <ul id="addedIngList_ee" ></ul>
         <br />
-        <label for="text">Sisesta juhend:</label><br />
-        <textarea name="text" id="text"></textarea><br />
+        <label for="text_ee" data-tag="text_ee"></label><br />
+        <textarea name="text_ee" id="text_ee"></textarea><br />
+        
+        <input type="checkbox" name="insert_Eng" id="insert_Eng" />
+        <p data-tag="insert_Eng"></p><br>
+        
+        <div id="cont_Eng" class="inputhidden" >
+            <h2 data-tag="header_eng"></h2><br />
+            <label for="title_eng" data-tag="title_eng"></label>
+            <input type="text" name="title_eng" /><br />
 
-        <input type="submit" name="submit" value="Lisa uus retsept" />
+            <label  data-tag="addIng_eng"></label><br />
+            <input type="text" title="addIngredient" id="addIngredient_eng" name="addIngredient_eng" placeholder="Sisesta toiduaine"/>
+            <input type="text" title="addAmount" id="addAmount_eng" name="addAmount_eng" placeholder="Sisesta kogus"/>
+            <input type="text" title="addUnit" id="addUnit_eng" name="addUnit_eng" placeholder="Sisesta ühik"/>
+            <button type="button" id="addIng_eng"  data-tag="addbtn_eng"></button><br />
+
+            <label  data-tag="addedIng_eng"></label>
+            <ul id="addedIngList_eng" ></ul>
+            <br />
+            <label for="text_eng" data-tag="text_eng"></label><br />
+            <textarea name="text_eng" id="text_eng"></textarea><br />
+        </div>
+        
+        <input type="checkbox" name="locationBox" id="locationBox" />
+        <p data-tag="locationBox"></p><br>
+        
+        <input type="submit" name="submit"  data-tag="add_recipe_ee" />
         <br />
         <br />
         <br />

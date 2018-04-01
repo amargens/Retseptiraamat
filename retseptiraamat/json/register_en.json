@@ -1,0 +1,21 @@
+{
+    "home":"Home",
+    "all_recipes": "All recipes",
+    "map": "Recipe map",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "create": "Create Recipe",
+    "header": "Register",
+    "nameLbl": "Name",
+    "name": "Name",
+    "emailLbl": "Email",
+    "email": "Email",
+    "usernameLbl": "Username",
+    "username": "Username",
+    "pswrdLbl": "Password",
+    "pswrd": "Password",
+    "pswrdRLbl": "Repeat password",
+    "pswrdR": "Password",
+    "loginBtn": "Register"
+}

@@ -1,0 +1,14 @@
+{
+    "home":"Home",
+    "all_recipes": "All recipes",
+    "map": "Recipe map",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "create": "Create Recipe",
+    "title": "Name",
+    "image": "Image",
+    "text": "Text",
+    "more": "More",
+    "readmore": "Read More"
+}

@@ -1,0 +1,15 @@
+{
+    "home":"Avaleht",
+    "all_recipes": "Kõik retseptid",
+    "map": "Retsepti kaart",
+    "login": "Logi sisse",
+    "logout": "Logi välja",
+    "register": "Loo kasutaja",
+    "create": "Retsepti lisamine",
+    "title": "Nimi",
+    "image": "Pilt",
+    "text": "Tekst",
+    "more": "Rohkem",
+    "readmore": "Loe Rohkem",
+    "search": "Otsi retsepti..."
+}

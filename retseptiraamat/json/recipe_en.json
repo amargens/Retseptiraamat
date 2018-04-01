@@ -1,0 +1,9 @@
+{
+    "home":"Home",
+    "all_recipes": "All recipes",
+    "map": "Recipe map",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "create": "Create Recipe"
+}

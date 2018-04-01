@@ -6,8 +6,22 @@
     <meta charset="utf-8">
     <title>Retsepti Raamat</title>
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.css"  type="text/css" />
-<!--    <link rel = "stylesheet" type = "text/css" href = "--><?php //echo base_url(); ?><!--css/--><?php //echo $title; ?><!--.css">-->
+    <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/app.css">
+    <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/<?php echo $title; ?>.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+        crossorigin=""/>
+    <link rel="stylesheet" href="https://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+        integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+        crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster-src.js"></script>
+    
+    <script type = "text/javascript" src = "<?php echo base_url();  ?>js/app.js"></script>
     <script type = "text/javascript" src = "<?php echo base_url();  ?>js/<?php echo $title; ?>.js"></script>
+    
 </head>
 <body>
 
@@ -21,16 +35,26 @@
         </div>
         <div>
             <ul class="nav navbar-nav">
-                <li><a href="<?php echo base_url();?>index.php/home/"> Avaleht </a> </li>
-                <li><a href="<?php echo base_url();?>index.php/home/"> Kõik retseptid </a> </li>
+                <li><a href="<?php echo base_url();?>index.php/home/" data-tag="home"></a> </li>
+                <li><a href="<?php echo base_url();?>index.php/home/" data-tag="all_recipes"></a> </li>
+                <li><a href="<?php echo base_url();?>index.php/map/" data-tag="map"></a> </li>
                 <?php if(!$this->session->userdata('sisselogitud')) : ?>
-                    <li><a href="<?php echo base_url();?>index.php/users/login"> Logi sisse </a> </li>
-                    <li><a href="<?php echo base_url();?>index.php/users/register/"> Loo kasutaja </a> </li>
+                    <li><a href="<?php echo base_url();?>index.php/users/login" data-tag="login"></a> </li>
+                    <li><a href="<?php echo base_url();?>index.php/users/register/" data-tag="register"></a> </li>
                 <?php endif; ?>
                 <?php if($this->session->userdata('sisselogitud')) : ?>
-                    <li><a href="<?php echo base_url();?>index.php/create/"> Retsepti lisamine </a> </li>
-                    <li><a href="<?php echo base_url();?>index.php/users/logivalja"> Logi välja </a> </li>
+                    <li><a href="<?php echo base_url();?>index.php/create/" data-tag="create"></a> </li>
+                    <li><a href="<?php echo base_url();?>index.php/users/logivalja" data-tag="logout"></a> </li>
                 <?php endif; ?>
+                <li>
+                    <form method="post" id="formlang" name="formlang" accept-charset="utf-8">
+                        <select class="form-control selcls" id="sel-lang">
+                            <option value="ee">EST</option>
+                            <option value="en">ENG</option>
+                        </select>
+                        <input type="submit" class="inputhidden" value="Submit">
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
@@ -52,7 +76,7 @@
     <?php if($this->session->flashdata('kasutaja_valjalogitud')): ?>
         <?php echo '<p class="alert alert-success">'.$this->session->flashdata('kasutaja_valjalogitud').'</p>'; ?>
     <?php endif; ?>
-
+    
     <?php if($this->session->flashdata('eba_otsing')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('eba_otsing').'</p>'; ?>
     <?php endif; ?>

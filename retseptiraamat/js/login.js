@@ -20,8 +20,6 @@ window.onload = function() {
     document.getElementById('sel-lang').addEventListener("change", function(){
         setCookie('lang', document.getElementById('sel-lang').value, 1);
         changeLang(document.getElementById('sel-lang').value);
-        document.getElementById('sel-lang').action = "../application/controllers/home/index"
-        document.formlang.submit();
     });
     
 }
@@ -38,7 +36,7 @@ function Translate() {
                 _self = this;
                 var xrhFile = new XMLHttpRequest();
                 //load content data 
-                xrhFile.open("GET", "../../../json/recipe_"+this.lng+".json", false);
+                xrhFile.open("GET", "../../json/login_"+this.lng+".json", false);
                 xrhFile.onreadystatechange = function ()
                 {
                     if(xrhFile.readyState === 4)
@@ -53,8 +51,12 @@ function Translate() {
                                 var key = elem.getAttribute(_self.attribute);
                                  
                                 if(key !== null) {
-                                     console.log(key);
-                                     elem.innerHTML = LngObject[key]  ;
+                                    console.log(key);
+                                    if ( key === 'username' || key === 'psword'){
+                                        elem.placeholder = LngObject[key];
+                                    } else {
+                                        elem.innerHTML = LngObject[key]  ;
+                                    }
                                 }
                             }
                      
