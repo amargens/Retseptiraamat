@@ -1,4 +1,3 @@
-
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <h2 data-tag="header_ee"></h2>
@@ -7,9 +6,9 @@
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-    <?php echo validation_errors(); ?>
-        
-    <form method="post" accept-charset="utf-8" action="<?php echo base_url().'index.php/create/index'; ?>" role="form" enctype="multipart/form-data" name="formCreate" id="formCreate">
+        <?php echo validation_errors(); ?>
+
+        <?php echo form_open('create/index', 'enctype="multipart/form-data"'); ?>
 
         <label for="title_ee" data-tag="title_ee"></label>
         <input type="text" name="title_ee" /><br />
@@ -31,10 +30,10 @@
         <br />
         <label for="text_ee" data-tag="text_ee"></label><br />
         <textarea name="text_ee" id="text_ee"></textarea><br />
-        
+
         <input type="checkbox" name="insert_Eng" id="insert_Eng" />
         <p data-tag="insert_Eng"></p><br>
-        
+
         <div id="cont_Eng" class="inputhidden" >
             <h2 data-tag="header_eng"></h2><br />
             <label for="title_eng" data-tag="title_eng"></label>
@@ -52,22 +51,17 @@
             <label for="text_eng" data-tag="text_eng"></label><br />
             <textarea name="text_eng" id="text_eng"></textarea><br />
         </div>
-        
+
         <input type="checkbox" name="locationBox" id="locationBox" />
         <p data-tag="locationBox"></p><br>
-        
-        <button type="button" id="submitRecipe" data-tag="add_recipe_ee"></button>
-        
-        <input type="submit" class="inputhidden" value="Submit"/>
+
+        <input type="submit" name="submit"  data-tag="add_recipe_ee" />
         <br />
         <br />
         <br />
         <br />
         <br />
 
-    </form>
-    <form method="post" role="form" id="formError" name="formError" action="<?php echo base_url().'index.php/create/error'; ?>" accept-charset="utf-8">
-        <input type="submit" class="inputhidden" value="Submit">
-    </form>
+        </form>
     </div>
 </div>
