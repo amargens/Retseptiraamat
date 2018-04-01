@@ -1,6 +1,7 @@
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
+        <h2 data-tag="header"></h2>
         <div id="map"></div>
         <form method="post" id="formmap" class="inputhidden" name="formmap" accept-charset="utf-8">
             <input type="text" id="inputmap" value="" name="inputmap" />

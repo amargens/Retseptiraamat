@@ -10,7 +10,7 @@
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-
+        <h2 data-tag="header"></h2>
         <h3 col-md-6><?php echo $recipe[0]['_title']; ?></h3>
         <?php if ( file_exists(APPPATH.'assets/recipe_img/'.$recipe[0]['_imgpath'])) {
                 $source = '../../../application/assets/recipe_img/'.$recipe[0]['_imgpath'];

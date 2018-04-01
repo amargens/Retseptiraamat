@@ -11,5 +11,7 @@
     "text": "Tekst",
     "more": "Rohkem",
     "readmore": "Loe Rohkem",
-    "search": "Otsi retsepti..."
+    "search": "Otsi retsepti...",
+    "searchlabel": "Otsi märksõnaga retsepti:",
+    "header": "Avaleht"
 }

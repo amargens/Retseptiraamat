@@ -11,5 +11,7 @@
     "text": "Text",
     "more": "More",
     "readmore": "Read More",
-    "search": "Search the recipe ..."
+    "search": "Search the recipe ...",
+    "searchlabel": "Search for recipes with keyword:",
+    "header": "Home"
 }

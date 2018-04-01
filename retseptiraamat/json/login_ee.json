@@ -6,8 +6,10 @@
     "logout": "Logi välja",
     "register": "Loo kasutaja",
     "create": "Retsepti lisamine",
-    "header": "Sisse logimine",
+    "header": "Sisselogimine",
     "username": "Sisesta kasutajanimi",
     "psword": "Sisesta parool",
-    "loginBtn": "Logi sisse"
+    "loginBtn": "Logi sisse",
+    "usernameLabel": "Kasutajanimi",
+    "passwordLabel": "Parool"
 }

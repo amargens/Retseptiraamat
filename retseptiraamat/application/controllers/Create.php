@@ -28,6 +28,7 @@ class Create extends CI_Controller {
             $this->load->view('templates/footer', $data);
         }
         else {
+            ob_start();
             $this->recipes->set_recipe();
             redirect('/home/index');
             //redirect('/pages/view');
