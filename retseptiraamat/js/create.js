@@ -50,6 +50,26 @@ window.onload = function() {
         document.getElementById('imageUpload').click();
     });
     
+    document.getElementById('submitRecipe').addEventListener("click", function(){
+        if (document.getElementById('addedIngList_ee').childElementCount > 0){
+            if (document.getElementById('insert_Eng').checked){
+                if (document.getElementById('addedIngList_eng').childElementCount > 0){
+                    alert("submit2");
+                    document.formCreate.submit();
+                } else {
+                    alert("error1");
+                    document.formError.submit();
+                }
+            }
+            alert("submit1");
+            document.formCreate.submit();
+        } else {
+            alert("error2");
+            document.formError.submit();
+        }
+            
+    });
+    
     document.getElementById('insert_Eng').addEventListener("change", function(){
         if (document.getElementById('insert_Eng').checked){
             document.getElementById('cont_Eng').className = "";
@@ -233,7 +253,7 @@ function Translate() {
                                  
                                 if(key !== null) {
                                      console.log(key);
-                                     if ( key === 'add_recipe_ee'){
+                                     if ( key === 'input_example'){ //not used
                                         elem.value = LngObject[key];
                                      }else if ( key !== 'imageUploadvalue_ee' && (this.lng !== "ee" && elem.innerHTML !== "No file chosen" ||
                                                                             this.lng !== "en" && elem.innerHTML !== "Pole valitud")){

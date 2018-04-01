@@ -74,11 +74,12 @@ SELECT _recipeID, IFNULL(_titleEng,_title), _imgpath, IFNULL(_textEng,_text) FRO
 
 DROP VIEW IF EXISTS `v_location`;
 CREATE VIEW `v_location` AS
-SELECT _recipeID, _title, _imgpath, _location, _text FROM retseptid;
+SELECT _recipeID, _title, _imgpath, _location, _text FROM retseptid WHERE _location IS NOT NULL;
 
 DROP VIEW IF EXISTS `v_locationEng`;
 CREATE VIEW `v_locationEng` (_recipeID, _title, _imgpath, _location, _text) AS
-SELECT _recipeID, IFNULL(_titleEng,_title), _imgpath, _location, IFNULL(_textEng,_text) FROM retseptid;
+SELECT _recipeID, IFNULL(_titleEng,_title), _imgpath, _location, IFNULL(_textEng,_text)
+FROM retseptid WHERE _location IS NOT NULL;
 
 DROP VIEW IF EXISTS `v_retseptid_full`;
 CREATE VIEW `v_retseptid_full` AS

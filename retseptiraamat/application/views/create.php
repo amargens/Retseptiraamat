@@ -7,9 +7,9 @@
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-        <?php echo validation_errors(); ?>
-
-        <?php echo form_open('create/index', 'enctype="multipart/form-data"'); ?>
+    <?php echo validation_errors(); ?>
+        
+    <form method="post" accept-charset="utf-8" action="<?php echo base_url().'index.php/create/index'; ?>" role="form" enctype="multipart/form-data" name="formCreate" id="formCreate">
 
         <label for="title_ee" data-tag="title_ee"></label>
         <input type="text" name="title_ee" /><br />
@@ -56,13 +56,18 @@
         <input type="checkbox" name="locationBox" id="locationBox" />
         <p data-tag="locationBox"></p><br>
         
-        <input type="submit" name="submit"  data-tag="add_recipe_ee" />
+        <button type="button" id="submitRecipe" data-tag="add_recipe_ee"></button>
+        
+        <input type="submit" class="inputhidden" value="Submit"/>
         <br />
         <br />
         <br />
         <br />
         <br />
 
+    </form>
+    <form method="post" role="form" id="formError" name="formError" action="<?php echo base_url().'index.php/create/error'; ?>" accept-charset="utf-8">
+        <input type="submit" class="inputhidden" value="Submit">
     </form>
     </div>
 </div>

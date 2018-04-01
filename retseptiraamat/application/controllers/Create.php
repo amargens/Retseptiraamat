@@ -33,7 +33,7 @@ class Create extends CI_Controller {
             //redirect('/pages/view');
         }
     }
-
+    
     public function image_upload(){
         if($_FILES['imageUpload']['size'] != 0){
             $upload_dir = './images/';
@@ -58,4 +58,40 @@ class Create extends CI_Controller {
             return false;
         }
     }
+    
+    public function error(){
+        
+        if(!$this->session->userdata('sisselogitud')){
+            redirect('/users/login');
+        }
+        
+        $cookie_lang = "lang";
+        $lang = "ee";
+        if(isset($_COOKIE[$cookie_lang])) {
+            $lang = $_COOKIE[$cookie_lang];
+        }
+    
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $data['title'] = 'create';
+
+        $this->form_validation->set_rules('title_ee', 'Title', 'required');
+        //$this->form_validation->set_rules('imageUpload', 'Image', 'required');
+        $this->form_validation->set_rules('text_ee', 'Text', 'required');
+        
+        if ($lang == "ee") {
+            $this->session->set_flashdata('lisa_error', 'Mõned väljad on täitmata!');
+        } else if ($lang == "en") {
+            $this->session->set_flashdata('lisa_error', 'Some fields are not complete!');
+        }
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('create', $data);
+        $this->load->view('templates/footer', $data);
+        
+    }
+    
 }
+
+

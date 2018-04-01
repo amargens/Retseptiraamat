@@ -80,4 +80,8 @@
     <?php if($this->session->flashdata('eba_otsing')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('eba_otsing').'</p>'; ?>
     <?php endif; ?>
+    
+    <?php if($this->session->flashdata('lisa_error')): ?>
+        <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('lisa_error').'</p>'; ?>
+    <?php endif; ?>
 </div>
