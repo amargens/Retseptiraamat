@@ -31,5 +31,30 @@ class Create extends CI_Controller {
             redirect('/home/index');
             //redirect('/pages/view');
         }
-    } 
+    }
+
+    public function image_upload(){
+        if($_FILES['imageUpload']['size'] != 0){
+            $upload_dir = './images/';
+            if (!is_dir($upload_dir)) {
+                mkdir($upload_dir);
+            }
+            $config['upload_path']   = $upload_dir;
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $config['overwrite']     = false;
+            $config['max_size']  = '5120';
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('imageUpload')){
+                $this->form_validation->set_message('image_upload', $this->upload->display_errors());
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+        else{
+            $this->form_validation->set_message('image_upload', "The Image field is required");
+            return false;
+        }
+    }
 }
