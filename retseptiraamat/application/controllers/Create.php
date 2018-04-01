@@ -20,6 +20,7 @@ class Create extends CI_Controller {
         $this->form_validation->set_rules('title_ee', 'Title', 'required');
         //$this->form_validation->set_rules('imageUpload', 'Image', 'required');
         $this->form_validation->set_rules('text_ee', 'Text', 'required');
+        $this->form_validation->set_rules('imageUpload', 'Image', 'callback_image_upload');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('templates/header', $data);
