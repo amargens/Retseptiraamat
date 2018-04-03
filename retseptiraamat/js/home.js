@@ -52,11 +52,7 @@ function Translate() {
                                  
                                 if(key !== null) {
                                      console.log(key);
-                                     if ( key === 'search'){
-                                        elem.placeholder = LngObject[key];
-                                    } else {
-                                        elem.innerHTML = LngObject[key]  ;
-                                    }
+                                     elem.innerHTML = LngObject[key]  ;
                                 }
                             }
                      

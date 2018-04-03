@@ -1,0 +1,22 @@
+{
+    "home":"Home",
+    "advsearch": "Search",
+    "map": "Recipe map",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "create": "Create Recipe",
+	"title": "Name",
+    "image": "Image",
+    "text": "Text",
+    "more": "More",
+    "readmore": "Read More",
+    "header_ee": "Search recipes by ingredients",
+    "addIng_ee": "Enter ingredients:",
+    "addbtn_ee": "Add",
+    "addedIng_ee": "Added ingredients:",
+    "removeIng_ee": "remove",
+	"search": "Search for a recipe...",
+	"header": "Search recipes by title",
+    "searchlabel": "Enter keyword:"
+}

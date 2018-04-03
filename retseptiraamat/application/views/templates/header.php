@@ -36,7 +36,7 @@
         <div>
             <ul class="nav navbar-nav">
                 <li><a href="<?php echo base_url();?>index.php/home/" data-tag="home"></a> </li>
-                <li><a href="<?php echo base_url();?>index.php/home/" data-tag="all_recipes"></a> </li>
+                <li><a href="<?php echo base_url();?>index.php/advsearch" data-tag="advsearch"></a> </li>
                 <li><a href="<?php echo base_url();?>index.php/map/" data-tag="map"></a> </li>
                 <?php if(!$this->session->userdata('sisselogitud')) : ?>
                     <li><a href="<?php echo base_url();?>index.php/users/login" data-tag="login"></a> </li>

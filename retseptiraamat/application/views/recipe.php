@@ -2,7 +2,7 @@
     <div class="col-md-8 col-md-offset-2">
         <ol class="breadcrumb">
             <li><a href="#">Avaleht</a></li>
-            <li><a href="#">Kõik retseptid</a></li>
+            <li><a href="#">Täpsem otsing</a></li>
             <li class="active">Retsept</li>
         </ol>
     </div>

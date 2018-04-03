@@ -1,17 +1,13 @@
 {
     "home":"Home",
-    "all_recipes": "All recipes",
+    "advsearch": "Search",
     "map": "Recipe map",
     "login": "Login",
     "logout": "Logout",
     "register": "Register",
     "create": "Create Recipe",
-    "title": "Name",
-    "image": "Image",
-    "text": "Text",
-    "more": "More",
-    "readmore": "Read More",
-    "search": "Search the recipe ...",
-    "searchlabel": "Search for recipes with keyword:",
+	"intro": "Welcome to the home page of Retseptiraamat (Recipe book)! Here you can search for recipes using various criteria, add new ones, and soon bookmark your favorites while being logged in.", 
+	"intro2": "To browse recipes, choose \"Search\" from the menu bar. All recipes are shown by default.",
+	"intro3": "Enjoy your stay!",
     "header": "Home"
 }

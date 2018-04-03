@@ -177,7 +177,25 @@ class Recipes extends CI_Model {
             return $query->result_array();
         }
     }
-    
+	
+	
+	public function ingredientsearch($ingredients) {
+        $cookie_lang = "lang";
+        $lang = "ee";
+        if(isset($_COOKIE[$cookie_lang])) {
+            $lang = $_COOKIE[$cookie_lang];
+        }
+		
+		if ($lang == "ee") {
+            $dbs = "v_retseptid_full";
+        } 
+		else if ($lang == "en") {
+            $dbs = "v_retseptideng_full";
+        }
+		$size = sizeof($ingredients);
+		$sql = "SELECT _recipeID, _title, _imgpath, _text FROM ".$dbs." WHERE _ingredient IN ('".implode("', '", $ingredients)."') GROUP BY _recipeID HAVING COUNT(*)=".$size;
+		$query = $this->db->query($sql);
+        return $query->result_array();
+    }
 }
- 
 ?>

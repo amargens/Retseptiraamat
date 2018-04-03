@@ -1,17 +1,13 @@
 {
     "home":"Avaleht",
-    "all_recipes": "Kõik retseptid",
+    "advsearch": "Otsing",
     "map": "Retsepti kaart",
     "login": "Logi sisse",
     "logout": "Logi välja",
     "register": "Loo kasutaja",
     "create": "Retsepti lisamine",
-    "title": "Nimi",
-    "image": "Pilt",
-    "text": "Tekst",
-    "more": "Rohkem",
-    "readmore": "Loe Rohkem",
-    "search": "Otsi retsepti...",
-    "searchlabel": "Otsi märksõnaga retsepti:",
+	"intro": "Tere tulemast Retseptiraamatu kodulehele! Siin saad otsida retsepte erinevate kriteeriumite järgi, neid sisselogituna lisada ning üsna pea ka salvestada.", 
+	"intro2": "Retseptide sirvimiseks vali menüüribalt \"Otsing\". Vaikimisi kuvatakse kõik retseptid.",
+    "intro3": "Meeldivat külastamist!",
     "header": "Avaleht"
 }

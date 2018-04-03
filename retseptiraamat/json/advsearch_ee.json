@@ -1,0 +1,22 @@
+{
+    "home":"Avaleht",
+    "advsearch": "Otsing",
+    "map": "Retsepti kaart",
+    "login": "Logi sisse",
+    "logout": "Logi välja",
+    "register": "Loo kasutaja",
+    "create": "Retsepti lisamine",
+	"title": "Nimi",
+    "image": "Pilt",
+    "text": "Tekst",
+    "more": "Rohkem",
+    "readmore": "Loe Rohkem",
+    "header_ee": "Otsi retsepte koostisosade järgi",
+    "addIng_ee": "Lisa koostisosad:",
+    "addbtn_ee": "Lisa",
+    "addedIng_ee": "Lisatud koostisosad:",
+    "removeIng_ee": "Eemalda",
+	"search": "Otsi retsepti...",
+	"header": "Otsi retsepte pealkirja järgi",
+    "searchlabel": "Sisesta märksõna:"
+}
