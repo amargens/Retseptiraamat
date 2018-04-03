@@ -56,11 +56,6 @@
         <p data-tag="locationBox"></p><br>
 
         <input type="submit" name="submit"  data-tag="add_recipe_ee" />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
 
         </form>
     </div>
