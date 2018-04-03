@@ -70,7 +70,7 @@ class Advsearch extends CI_Controller {
             $data['recipes'] = $this->recipes->ingredientsearch($ingredients);
             if (empty($data['recipes'])) {
                 if ($lang == "ee") {
-                    $this->session->set_flashdata('eba_otsing', 'Selliste koostisosadega retsepte ei leitud  - empty.');
+                    $this->session->set_flashdata('eba_otsing', 'Selliste koostisosadega retsepte ei leitud.');
                 } else if ($lang == "en") {
                     $this->session->set_flashdata('eba_otsing', 'No recipes found with these ingredients.');
                 }
@@ -84,7 +84,7 @@ class Advsearch extends CI_Controller {
         }
         else {
             if ($lang == "ee") {
-                $this->session->set_flashdata('eba_otsing', 'Selliste koostisosadega retsepte ei leitud - muu.');
+                $this->session->set_flashdata('eba_otsing', 'Selliste koostisosadega retsepte ei leitud.');
             } else if ($lang == "en") {
                 $this->session->set_flashdata('eba_otsing', 'No recipes found with these ingredients.');
             }
