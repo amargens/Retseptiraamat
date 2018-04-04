@@ -1,6 +1,6 @@
 .DS_Store
 
-retseptiraamat/application/assets/recipe_img/*
+application/assets/recipe_img/*
 
 application/cache/*
 !application/cache/index.html
