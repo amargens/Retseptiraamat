@@ -16,7 +16,7 @@ class Recipes extends CI_Model {
             if ($lang == "ee") {
                 $sql = "SELECT * FROM v_retseptid;";
             } else if ($lang == "en") {
-                $sql = "SELECT * FROM v_retseptidEng;";
+                $sql = "SELECT * FROM v_retseptideng;";
             }
             $query = $this->db->query($sql);
             return $query->result_array();
@@ -24,7 +24,7 @@ class Recipes extends CI_Model {
         if ($lang == "ee") {
             $sql = "SELECT * FROM v_retseptid_full WHERE _recipeID = ?;";
         } else if ($lang == "en") {
-            $sql = "SELECT * FROM v_retseptidEng_full WHERE _recipeID = ?;";
+            $sql = "SELECT * FROM v_retseptideng_full WHERE _recipeID = ?;";
         }
         $query = $this->db->query($sql, array($index));
         
@@ -40,7 +40,7 @@ class Recipes extends CI_Model {
         if ($lang == "ee") {
             $sql = "SELECT * FROM v_location;";
         } else if ($lang == "en") {
-            $sql = "SELECT * FROM v_locationEng;";
+            $sql = "SELECT * FROM v_locationeng;";
         }
         $query = $this->db->query($sql);
         return $query->result_array();
@@ -63,10 +63,10 @@ class Recipes extends CI_Model {
             
         } else if ($lang == "en") {
             if (!isset($_POST['inputmap'])) {
-                $sql = "SELECT * FROM v_locationEng;";
+                $sql = "SELECT * FROM v_locationeng;";
             } else {
                 $inputmap = $this->input->post('inputmap');
-                $sql = 'SELECT * FROM `v_locationEng` 
+                $sql = 'SELECT * FROM `v_locationeng` 
                     WHERE `_recipeID` IN (' . implode(',', array_map('intval', explode(',' ,$inputmap))) . ')';
             }
             
@@ -103,7 +103,7 @@ class Recipes extends CI_Model {
             if ($lang == "ee") {
                 $sql = "SELECT * FROM v_retseptid WHERE `_recipeID` IN (" . implode(',', array_map('intval', explode(',' ,$fav))) . ")";
             } else if ($lang == "en") {
-                $sql = "SELECT * FROM v_retseptidEng WHERE `_recipeID` IN (" . implode(',', array_map('intval', explode(',' ,$fav))) . ")";
+                $sql = "SELECT * FROM v_retseptideng WHERE `_recipeID` IN (" . implode(',', array_map('intval', explode(',' ,$fav))) . ")";
             }
             $query = $this->db->query($sql, array($userid));
             return $query->result_array();
@@ -126,7 +126,7 @@ class Recipes extends CI_Model {
         if ($lang == "ee") {
             $sql = "SELECT * FROM v_retseptid WHERE _userID = ?;";
         } else if ($lang == "en") {
-            $sql = "SELECT * FROM v_retseptidEng WHERE _userID = ?;";
+            $sql = "SELECT * FROM v_retseptideng WHERE _userID = ?;";
         }
         $query = $this->db->query($sql, array($userid));
         $qarray = $query->result_array();

@@ -80,7 +80,7 @@ DROP VIEW IF EXISTS `v_retseptid`;
 CREATE VIEW `v_retseptid` AS
 SELECT _recipeID, _userID, _title, _imgpath, _text FROM retseptid;
 
-DROP VIEW IF EXISTS `v_retseptidEng`;
+DROP VIEW IF EXISTS `v_retseptideng`;
 CREATE VIEW `v_retseptidEng` (_recipeID, _userID, _title, _imgpath, _text) AS
 SELECT _recipeID, _userID, IFNULL(_titleEng,_title), _imgpath, IFNULL(_textEng,_text) FROM retseptid;
 
@@ -92,7 +92,7 @@ DROP VIEW IF EXISTS `v_location`;
 CREATE VIEW `v_location` AS
 SELECT _recipeID, _title, _imgpath, _location, _text FROM retseptid WHERE _location IS NOT NULL;
 
-DROP VIEW IF EXISTS `v_locationEng`;
+DROP VIEW IF EXISTS `v_locationeng`;
 CREATE VIEW `v_locationEng` (_recipeID, _title, _imgpath, _location, _text) AS
 SELECT _recipeID, IFNULL(_titleEng,_title), _imgpath, _location, IFNULL(_textEng,_text)
 FROM retseptid WHERE _location IS NOT NULL;
@@ -104,7 +104,7 @@ FROM retseptid
 INNER JOIN toiduained
 ON retseptid._recipeID=toiduained._recipeID;
 
-DROP VIEW IF EXISTS `v_retseptidEng_full`;
+DROP VIEW IF EXISTS `v_retseptideng_full`;
 CREATE VIEW `v_retseptidEng_full` (_recipeID, _title, _imgpath, _text, _ingredient, _amount, _unit) AS
 SELECT retseptid._recipeID, IFNULL(retseptid._titleEng,retseptid._title), retseptid._imgpath, IFNULL(retseptid._textEng,retseptid._text), 
 IFNULL(toiduained._ingredientEng,toiduained._ingredient), IFNULL(toiduained._amountEng,toiduained._amount), IFNULL(toiduained._unitEng,toiduained._unit)
