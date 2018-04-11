@@ -224,7 +224,7 @@ class Recipes extends CI_Model {
         if ($lang == "ee") {
             $this->db->from('v_retseptid');
         } else if ($lang == "en") {
-            $this->db->from('v_retseptidEng');
+            $this->db->from('v_retseptideng');
         }
         $this->db->like('_title', $key);
         $query = $this->db->get();
