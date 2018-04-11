@@ -4,6 +4,7 @@
     "map": "Recipe map",
     "login": "Login",
     "logout": "Logout",
+    "account": "Account",
     "register": "Register",
     "create": "Create Recipe",
     "header": "Register",

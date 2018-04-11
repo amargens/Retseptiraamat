@@ -1,0 +1,42 @@
+
+.showImage {
+    width: 100%;
+    padding-bottom: 100%;
+}
+
+@media (min-width: 992px) {
+    #showImage {
+        float: right !important;
+    }
+    
+    .extra {
+        position: relative;
+    }
+    
+    .readmore {
+        position: absolute;
+        bottom: 0px;
+    }
+    
+    .tabrow {
+        display: table;
+    }
+    
+    .tabcol {
+        float: none;
+        display: table-cell;
+        vertical-align: top;
+    }
+}
+
+.favbtnon {
+    background-color: #f4e242;
+}
+
+#menu {
+    text-align: left;
+}
+
+#menunav {
+    margin-top: 20px;
+}

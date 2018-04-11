@@ -50,6 +50,23 @@ window.onload = function() {
         document.getElementById('imageUpload').click();
     });
     
+    document.getElementById('submitRecipe').addEventListener("click", function(){
+        if (document.getElementById('addedIngList_ee').childElementCount > 0){
+            if (document.getElementById('insert_Eng').checked){
+                if (document.getElementById('addedIngList_eng').childElementCount > 0){
+                    document.formCreate.submit();
+                } else {
+                    document.formError.submit();
+                }
+            } else {
+                document.formCreate.submit();
+            }
+        } else {
+            document.formError.submit();
+        }
+            
+    });
+    
     document.getElementById('insert_Eng').addEventListener("change", function(){
         if (document.getElementById('insert_Eng').checked){
             document.getElementById('cont_Eng').className = "";

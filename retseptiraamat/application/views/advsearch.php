@@ -1,12 +1,19 @@
+<div class="container inputhidden" id="offlinealert">
+            <p class="alert alert-danger" data-tag="offline"></p>
+</div>
+<div class="container inputhidden" id="offlinealertsearch">
+            <p class="alert alert-danger" data-tag="offlinesearch"></p>
+</div>
+
 <div class="col-md-6 col-md-offset-2">
     <h2 data-tag="header"></h2>
-    <form class="form-inline" role="form" action="<?php echo base_url().'index.php/advsearch/keysearch'; ?>" method="post">
+    <form class="form-inline" name="searchform" role="form" action="<?php echo base_url().'index.php/advsearch/keysearch'; ?>" method="post">
         <div class="input-group">
             <label for="search" data-tag="searchlabel"></label>
             <input type="text" name="search" class="form-control" id="search" data-tag="search">
 			<br /><br /><br /><br />
             <span class="input-group-btn">
-			<button class="btn btn-default glyphicon-search" type="submit"></button>
+			<button class="btn btn-default glyphicon-search" id="searchbtn" type="button"></button>
         </span>
         </div>
     </form>

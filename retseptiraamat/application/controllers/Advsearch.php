@@ -10,6 +10,10 @@ class Advsearch extends CI_Controller {
     public function index() {
 		$data['title'] = 'advsearch';
 		$data['recipes'] = $this->recipes->get_recipes();
+        
+        echo '<script>';
+        echo 'var data = ' . json_encode($data['recipes']) . ';';
+        echo '</script>';
 		
         $this->load->view('templates/header', $data);
         $this->load->view('advsearch', $data);

@@ -4,6 +4,7 @@
     "map": "Recipe map",
     "login": "Login",
     "logout": "Logout",
+    "account": "Account",
     "register": "Register",
     "create": "Create Recipe",
 	"intro": "Welcome to the home page of Retseptiraamat (Recipe book)! Here you can search for recipes using various criteria, add new ones, and soon bookmark your favorites while being logged in.", 

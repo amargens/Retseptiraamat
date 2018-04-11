@@ -10,6 +10,9 @@ class Recipe extends CI_Controller {
     public function view($index = '1') {
         
         $data['title'] = 'recipe';
+        $data['index'] = $index;
+        $userid = $this->session->userdata('kasutaja_id');
+        $data['favourites'] = $this->recipes->get_favourites($userid);
         $data['recipe'] = $this->recipes->get_recipes($index);
 
         $this->load->view('templates/header', $data);
@@ -17,6 +20,13 @@ class Recipe extends CI_Controller {
         $this->load->view('templates/footer', $data);
         
         
+    }
+    
+    public function favbtn($index = '1'){
+        
+        $this->recipes->set_favourite();
+        
+        redirect('/recipe/view/'.$index);
     }
     
 }

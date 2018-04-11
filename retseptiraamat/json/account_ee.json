@@ -1,0 +1,18 @@
+{
+    "home":"Avaleht",
+    "advsearch": "Otsing",
+    "map": "Retsepti kaart",
+    "login": "Logi sisse",
+    "logout": "Logi välja",
+    "account": "Konto",
+    "register": "Loo kasutaja",
+    "create": "Retsepti lisamine",
+    "header": "Konto",
+    "readmore": "Loe Rohkem",
+    "favres": "Salvestatud retseptid",
+    "userres": "Teie retseptid",
+    "accset": "Konto seaded",
+    "favbtn": "Lemmik",
+    "nofavres": "Me ei leidnud ühtegi selle konto lemmik retsepti.",
+    "nouserres": "Me ei leidnud ühtegi selle konto poolt loodud retsepti."
+}

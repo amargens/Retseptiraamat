@@ -35,6 +35,42 @@ window.onload = function() {
     });
     
     
+    document.getElementById('searchbtn').addEventListener("click", function(){
+        //alert(navigator.onLine);
+        if (navigator.onLine){
+            document.getElementById('offlinealert').className = "container inputhidden";
+            document.getElementById('offlinealertsearch').className = "container inputhidden";
+            document.searchform.submit();
+        } else{
+            document.getElementById('offlinealert').className = "container";
+            var key = document.getElementById('search').value;
+            var rows = document.getElementsByTagName("tr");
+            var count = 0;
+            for (var i = 0; i<rows.length; i++){
+                var str = rows[i].firstElementChild.innerHTML;
+                if (i !== 0 && str.toLowerCase().indexOf(key.toLowerCase()) !== -1){
+                    count +=1;
+                    rows[i].className = "";
+                } else if(i !== 0) {
+                    rows[i].className = "inputhidden";
+                }
+            }
+            if (count === 0){
+                document.getElementById('offlinealertsearch').className = "container";
+                for (var i = 0; i<rows.length; i++){
+                    if (i !== 0){
+                        rows[i].className = "";
+                    }
+            }
+            } else {
+                document.getElementById('offlinealertsearch').className = "container inputhidden";
+            }
+            
+        }
+        
+    });
+    
+    
 }
 
 document.addEventListener('DOMContentLoaded', function() {

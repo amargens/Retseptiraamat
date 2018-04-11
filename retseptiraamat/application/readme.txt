@@ -8,13 +8,15 @@ praeguse lahenduse andmebaas
 DROP TABLE IF EXISTS `retseptid`;
 CREATE TABLE IF NOT EXISTS `retseptid` (
   `_recipeID` int(11) NOT NULL AUTO_INCREMENT,
+  `_userID` int(11) NOT NULL,
   `_title` char(50) NOT NULL,
   `_titleEng` char(50) DEFAULT NULL,
   `_imgpath` char(50) DEFAULT NULL,
   `_location` char(50) DEFAULT NULL,
   `_text` text NOT NULL,
   `_textEng` text DEFAULT NULL,
-  PRIMARY KEY (`_recipeID`)
+  PRIMARY KEY (`_recipeID`),
+  FOREIGN KEY (_userID) REFERENCES kasutajad(id)
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `toiduained`;
@@ -36,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `kasutajad` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nimi` char(255) NOT NULL,
   `email` char(255) NOT NULL,
+  `favourites` char(50) DEFAULT NULL,
   `kasutajanimi` char(255) NOT NULL,
    `parool` char(255) NOT NULL,
    `registr_kuup` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -46,10 +49,10 @@ CREATE TABLE IF NOT EXISTS `kasutajad` (
 ------------------
 
 DROP PROCEDURE IF EXISTS `p_retseptid`;//
-CREATE PROCEDURE `p_retseptid` (in_title char(50), in_titleEng char(50), in_imgpath char(50), in_location char(50), in_text text, in_textEng text)
+CREATE PROCEDURE `p_retseptid` (in_userID int(11), in_title char(50), in_titleEng char(50), in_imgpath char(50), in_location char(50), in_text text, in_textEng text)
 BEGIN
-INSERT INTO retseptid (_title, _titleEng, _imgpath, _location, _text, _textEng)
-VALUES (in_title, in_titleEng, in_imgpath, in_location, in_text, in_textEng);
+INSERT INTO retseptid (_userID, _title, _titleEng, _imgpath, _location, _text, _textEng)
+VALUES (in_userID, in_title, in_titleEng, in_imgpath, in_location, in_text, in_textEng);
 END//
 
 DROP PROCEDURE IF EXISTS `p_toiduained`;//
@@ -60,17 +63,30 @@ INSERT INTO toiduained (_recipeID, _ingredient, _ingredientEng, _amount, _amount
 VALUES (in_recipeID, in_ingredient, in_ingredientEng, in_amount, in_amountEng, in_unit, in_unitEng);
 END//
 
+DROP PROCEDURE IF EXISTS `p_favourites`;//
+CREATE PROCEDURE `p_favourites` (in_recipeID int(11), in_fav char(50))
+BEGIN
+UPDATE kasutajad
+SET favourites = in_fav
+WHERE id = in_recipeID;
+END//
+
 kus eraldaja/delimiter panna //
+
 
 --------------------
 
 DROP VIEW IF EXISTS `v_retseptid`;
 CREATE VIEW `v_retseptid` AS
-SELECT _recipeID, _title, _imgpath, _text FROM retseptid;
+SELECT _recipeID, _userID, _title, _imgpath, _text FROM retseptid;
 
 DROP VIEW IF EXISTS `v_retseptidEng`;
-CREATE VIEW `v_retseptidEng` (_recipeID, _title, _imgpath, _text) AS
-SELECT _recipeID, IFNULL(_titleEng,_title), _imgpath, IFNULL(_textEng,_text) FROM retseptid;
+CREATE VIEW `v_retseptidEng` (_recipeID, _userID, _title, _imgpath, _text) AS
+SELECT _recipeID, _userID, IFNULL(_titleEng,_title), _imgpath, IFNULL(_textEng,_text) FROM retseptid;
+
+DROP VIEW IF EXISTS `v_favourites`;
+CREATE VIEW `v_favourites` AS
+SELECT id, favourites FROM kasutajad;
 
 DROP VIEW IF EXISTS `v_location`;
 CREATE VIEW `v_location` AS

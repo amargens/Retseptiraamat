@@ -44,6 +44,7 @@
                 <?php endif; ?>
                 <?php if($this->session->userdata('sisselogitud')) : ?>
                     <li><a href="<?php echo base_url();?>index.php/create/" data-tag="create"></a> </li>
+                    <li><a href="<?php echo base_url();?>index.php/account/" data-tag="account"></a> </li>
                     <li><a href="<?php echo base_url();?>index.php/users/logivalja" data-tag="logout"></a> </li>
                 <?php endif; ?>
                 <li>

@@ -1,0 +1,18 @@
+{
+    "home":"Home",
+    "advsearch": "Search",
+    "map": "Recipe map",
+    "login": "Login",
+    "logout": "Logout",
+    "account": "Account",
+    "register": "Register",
+    "create": "Create Recipe",
+    "header": "Account",
+    "readmore": "Read More",
+    "favres": "Favourite recipes",
+    "userres": "Your recipes",
+    "accset": "Account settings",
+    "favbtn": "Favourite",
+    "nofavres": "We did not found any favourite recipes linked to this account.",
+    "nouserres": "We did not found any usercreated recipes linked to this account."
+}

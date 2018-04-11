@@ -24,12 +24,32 @@ window.onload = function() {
         document.formlang.submit();
     });
     
-    document.getElementById('favbtn').addEventListener("click", function(){
-        document.formfav.submit();
+    document.getElementById('favres').addEventListener("click", function(){
+        document.getElementById('favrescont').className = "";
+        document.getElementById('userrescont').className = "inputhidden";
+        document.getElementById('accsetcont').className = "inputhidden";
     });
+    
+    document.getElementById('userres').addEventListener("click", function(){
+        document.getElementById('favrescont').className = "inputhidden";
+        document.getElementById('userrescont').className = "";
+        document.getElementById('accsetcont').className = "inputhidden";
+    });
+    
+    document.getElementById('accset').addEventListener("click", function(){
+        document.getElementById('favrescont').className = "inputhidden";
+        document.getElementById('userrescont').className = "inputhidden";
+        document.getElementById('accsetcont').className = "";
+    });
+    
+    //alert(navigator.onLine);
     
 }
 
+
+function favbtn() {
+    document.formfav.submit();
+}
 
 function Translate() { 
     //initialization
@@ -42,7 +62,7 @@ function Translate() {
                 _self = this;
                 var xrhFile = new XMLHttpRequest();
                 //load content data 
-                xrhFile.open("GET", "../../../json/recipe_"+this.lng+".json", false);
+                xrhFile.open("GET", "../../json/account_"+this.lng+".json", false);
                 xrhFile.onreadystatechange = function ()
                 {
                     if(xrhFile.readyState === 4)

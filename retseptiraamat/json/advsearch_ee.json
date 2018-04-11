@@ -4,6 +4,7 @@
     "map": "Retsepti kaart",
     "login": "Logi sisse",
     "logout": "Logi välja",
+    "account": "Konto",
     "register": "Loo kasutaja",
     "create": "Retsepti lisamine",
 	"title": "Nimi",
@@ -18,5 +19,7 @@
     "removeIng_ee": "Eemalda",
 	"search": "Otsi retsepti...",
 	"header": "Otsi retsepte pealkirja järgi",
+    "offline" : "Interneti ühendus puudub!",
+    "offlinesearch" : "Sellise nimega retsepte ei ole!",
     "searchlabel": "Sisesta märksõna:"
 }

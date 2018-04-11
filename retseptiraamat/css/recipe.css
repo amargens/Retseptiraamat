@@ -3,3 +3,13 @@
     height: 200px;
     width: 200px;
 }
+
+@media (min-width: 992px) {
+    #showImage {
+        float: right !important;
+    }
+}
+
+.favbtnon {
+    background-color: #f4e242;
+}

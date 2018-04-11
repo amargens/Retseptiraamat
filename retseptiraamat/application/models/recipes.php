@@ -75,8 +75,67 @@ class Recipes extends CI_Model {
         return $query->result_array();
     }
     
+    public function get_favourites($id = NULL) {
+        
+        if ($id === NULL) {
+            return $id;
+        }
+        $sql = "SELECT favourites FROM v_favourites WHERE id = ?;";
+        $query = $this->db->query($sql, array($id));
+        
+        return $query->result_array();
+    }
     
+    public function get_favrecipes() {
+        
+        $userid = $this->session->userdata('kasutaja_id');
+        $cookie_lang = "lang";
+        $lang = "ee";
+        if(isset($_COOKIE[$cookie_lang])) {
+            $lang = $_COOKIE[$cookie_lang];
+        }
+        $favourites = $this->recipes->get_favourites($userid);
+        if ($favourites !== NULL){
+            $fav = $favourites[0]['favourites'];
+            if ($fav === NULL){
+                return NULL;
+            }
+            if ($lang == "ee") {
+                $sql = "SELECT * FROM v_retseptid WHERE `_recipeID` IN (" . implode(',', array_map('intval', explode(',' ,$fav))) . ")";
+            } else if ($lang == "en") {
+                $sql = "SELECT * FROM v_retseptidEng WHERE `_recipeID` IN (" . implode(',', array_map('intval', explode(',' ,$fav))) . ")";
+            }
+            $query = $this->db->query($sql, array($userid));
+            return $query->result_array();
+        }
+        else{
+            return NULL;
+        }
+        
+        
+    }
     
+    public function get_userrecipe() {
+        
+        $userid = $this->session->userdata('kasutaja_id');
+        $cookie_lang = "lang";
+        $lang = "ee";
+        if(isset($_COOKIE[$cookie_lang])) {
+            $lang = $_COOKIE[$cookie_lang];
+        }
+        if ($lang == "ee") {
+            $sql = "SELECT * FROM v_retseptid WHERE _userID = ?;";
+        } else if ($lang == "en") {
+            $sql = "SELECT * FROM v_retseptidEng WHERE _userID = ?;";
+        }
+        $query = $this->db->query($sql, array($userid));
+        $qarray = $query->result_array();
+        if (sizeof($qarray) === 0){
+            return NULL;
+        }
+        return $qarray;
+    }
+   
     
     public function set_recipe() {
         
@@ -85,7 +144,7 @@ class Recipes extends CI_Model {
         while (in_array($imgname, array_column($this->get_recipes(), '_imgpath'))) {
             $imgname = $this->genRandString();
         }
-        
+        $userid = $this->session->userdata('kasutaja_id');
         $title_ee = $this->input->post('title_ee');
         $text_ee = $this->input->post('text_ee');
         $ingredients_ee = $this->input->post('ingredient_ee');
@@ -101,12 +160,12 @@ class Recipes extends CI_Model {
         if ($this->setfile($imgname)) {
             $filename = $imgname.".".pathinfo($_FILES['imageUpload']['name'])['extension'];
             
-            $sql = "CALL p_retseptid(?, ?, ?, ?, ?, ?)";
+            $sql = "CALL p_retseptid(?, ?, ?, ?, ?, ?, ?)";
             if ($locationBox === "") $locationBox = NULL;
             if (isset($_POST['insert_Eng'])){
-                $this->db->query($sql, array($title_ee, $title_eng, $filename, $locationBox, $text_ee, $text_eng));
+                $this->db->query($sql, array($userid, $title_ee, $title_eng, $filename, $locationBox, $text_ee, $text_eng));
             } else {
-                $this->db->query($sql, array($title_ee, NULL, $filename, $locationBox, $text_ee, NULL));
+                $this->db->query($sql, array($userid, $title_ee, NULL, $filename, $locationBox, $text_ee, NULL));
             }
             
             $sql = "SELECT _recipeID FROM v_retseptid WHERE _imgpath=?;";
@@ -122,7 +181,6 @@ class Recipes extends CI_Model {
                 } else {
                     $this->db->query($sql, array($id, $ingredients_ee[$i], NULL, $amounts_ee[$i], NULL, $units_ee[$i], NULL));
                 }
-                echo "siin ".$i;
             }
 
             return true;
@@ -197,5 +255,52 @@ class Recipes extends CI_Model {
 		$query = $this->db->query($sql);
         return $query->result_array();
     }
+    
+    public function set_favourite($accIndex = FALSE){
+        
+        $userid = $this->session->userdata('kasutaja_id');
+        if ($accIndex === FALSE){
+            $index = $this->input->post('index');
+            $addrem = $this->input->post('favbtn');
+        }
+        else{
+            $index = $accIndex;
+            $addrem = "on";
+        }
+        $favourites = $this->recipes->get_favourites($userid);
+        if ($favourites !== FALSE){
+            $fav = $favourites[0]['favourites'];
+        }
+        else{
+            $fav = "";
+        }
+        if ($addrem === "off"){
+            if ($fav === "" || $fav === NULL) {
+                $fav = $index;
+            } else {
+                $fav = $fav.",".$index;
+            }
+            $sql = "CALL p_favourites(?, ?)";
+            $this->db->query($sql, array($userid, $fav));
+        } else if ($addrem === "on"){
+            if ($fav !== ""){
+                if ($fav === $index){
+                    $fav = NULL;
+                } else {
+                    $fav = explode(',' ,$favourites[0]['favourites']);
+                    $key = array_search ($index, $fav);
+                    
+                    unset($fav[$key]);
+                    
+                    $fav = implode(',', $fav);
+                }
+                $sql = "CALL p_favourites(?, ?)";
+                $this->db->query($sql, array($userid, $fav));
+            }
+            
+        }
+        
+    }
+    
 }
 ?>

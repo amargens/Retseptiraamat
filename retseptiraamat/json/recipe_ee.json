@@ -4,7 +4,9 @@
     "map": "Retsepti kaart",
     "login": "Logi sisse",
     "logout": "Logi välja",
+    "account": "Konto",
     "register": "Loo kasutaja",
     "create": "Retsepti lisamine",
-    "header": "Retsept"
+    "header": "Retsept",
+    "favbtn": "Lemmik"
 }
