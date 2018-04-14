@@ -11,6 +11,8 @@
     "username": "Sisesta kasutajanimi",
     "psword": "Sisesta parool",
     "loginBtn": "Logi sisse",
+    "loginGgl": "Logi sisse Google kaudu",
     "usernameLabel": "Kasutajanimi",
-    "passwordLabel": "Parool"
+    "passwordLabel": "Parool",
+    "contact": "Kontakt"
 }

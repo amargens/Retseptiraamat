@@ -21,5 +21,6 @@
 	"header": "Search recipes by title",
     "offline" : "No Internet access!",
     "offlinesearch" : "No recipes with that name!",
-    "searchlabel": "Enter keyword:"
+    "searchlabel": "Enter keyword:",
+    "contact": "Contact"
 }

@@ -2,7 +2,7 @@
 <div class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
     <span class="navbar-text">
-      <em>&copy;Retseptiraamat 2018</em>
+      <li><a href="<?php echo base_url();?>index.php/contact/" data-tag="contact"></a> </li>
     </span>
     </div>
 </div>

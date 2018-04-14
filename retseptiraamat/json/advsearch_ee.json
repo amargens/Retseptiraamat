@@ -21,5 +21,7 @@
 	"header": "Otsi retsepte pealkirja järgi",
     "offline" : "Interneti ühendus puudub!",
     "offlinesearch" : "Sellise nimega retsepte ei ole!",
-    "searchlabel": "Sisesta märksõna:"
+    "searchlabel": "Sisesta märksõna:",
+    "contact": "Kontakt"
+
 }

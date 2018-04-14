@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tiim xmlns:s="http://www.w3schools.com/NS/">
+	<s:nimi>Martin Salus</s:nimi>
+	<s:nimi2>Marianne Dengo</s:nimi2>
+	<s:nimi3>Andro margens</s:nimi3>
+	<s:email>retseptikas@gmail.com</s:email>
+	<s:aadress>Juhan Liivi 2, 50409 Tartu</s:aadress>
+</tiim>

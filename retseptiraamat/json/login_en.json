@@ -11,6 +11,8 @@
     "username": "Insert username",
     "psword": "Insert password",
     "loginBtn": "Login",
+    "loginGgl": "Log in with Google",
     "usernameLabel": "Username",
-    "passwordLabel": "Password"
+    "passwordLabel": "Password",
+    "contact": "Contact"
 }

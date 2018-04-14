@@ -10,5 +10,6 @@
 	"intro": "Welcome to the home page of Retseptiraamat (Recipe book)! Here you can search for recipes using various criteria, add new ones, and soon bookmark your favorites while being logged in.", 
 	"intro2": "To browse recipes, choose \"Search\" from the menu bar. All recipes are shown by default.",
 	"intro3": "Enjoy your stay!",
-    "header": "Home"
+    "header": "Home",
+  "contact": "Contact"
 }
