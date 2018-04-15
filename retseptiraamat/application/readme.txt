@@ -45,6 +45,15 @@ CREATE TABLE IF NOT EXISTS `kasutajad` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `stats`;
+CREATE TABLE IF NOT EXISTS `stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `browser` char(50) NOT NULL,
+  `visittime` char(50) NOT NULL,
+  `page` char(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
 
 ------------------
 
@@ -69,6 +78,13 @@ BEGIN
 UPDATE kasutajad
 SET favourites = in_fav
 WHERE id = in_recipeID;
+END//
+
+DROP PROCEDURE IF EXISTS `p_stats`;//
+CREATE PROCEDURE `p_stats` (in_browser char(50), in_visittime char(50), in_page char(50))
+BEGIN
+INSERT INTO stats (browser, visittime, page)
+VALUES (in_browser, in_visittime, in_page);
 END//
 
 kus eraldaja/delimiter panna //
@@ -111,3 +127,15 @@ IFNULL(toiduained._ingredientEng,toiduained._ingredient), IFNULL(toiduained._amo
 FROM retseptid
 INNER JOIN toiduained
 ON retseptid._recipeID=toiduained._recipeID;
+
+DROP VIEW IF EXISTS `v_statsbrowser`;
+CREATE VIEW `v_statsbrowser` AS
+SELECT browser, count(browser) FROM stats GROUP by browser;
+
+DROP VIEW IF EXISTS `v_statstime`;
+CREATE VIEW `v_statstime` AS
+SELECT visittime, count(visittime) FROM stats GROUP by visittime;
+
+DROP VIEW IF EXISTS `v_statspage`;
+CREATE VIEW `v_statspage` AS
+SELECT page, count(page) FROM stats GROUP by page;
