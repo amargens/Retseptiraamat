@@ -8,7 +8,7 @@ class Account extends CI_Controller {
     }
     
     public function index() {
-        
+        ob_start();
         $data['title'] = 'account';
         $data['favrecipes'] = $this->recipes->get_favrecipes();
         $data['userrecipes'] = $this->recipes->get_userrecipe();

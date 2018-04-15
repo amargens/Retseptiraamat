@@ -8,7 +8,7 @@ class Recipe extends CI_Controller {
     }
     
     public function view($index = '1') {
-        
+        ob_start();
         $data['title'] = 'recipe';
         $data['index'] = $index;
         $userid = $this->session->userdata('kasutaja_id');

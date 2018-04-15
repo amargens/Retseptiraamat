@@ -2,6 +2,7 @@
 
 class Users extends CI_Controller{
     public function register(){
+        ob_start();
         $data['title'] = 'register';
         
         echo '<script>';
@@ -57,6 +58,7 @@ class Users extends CI_Controller{
     }
 
     public function login(){
+        ob_start();
         $data['title'] = 'login';
         
         echo '<script>';

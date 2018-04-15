@@ -11,6 +11,7 @@ class Create extends CI_Controller
 
     public function index()
     {
+        ob_start();
         if (!$this->session->userdata('sisselogitud')) {
             redirect('/users/login');
         }

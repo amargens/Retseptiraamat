@@ -54,7 +54,7 @@
         </thead>
         <tbody>
             <?php foreach ($recipes as $recipe_item): ?>
-            <tr>
+            <tr id="<?php echo $recipe_item['_recipeID']; ?>">
                 <td><?php echo $recipe_item['_title']; ?></td>
                 <td>
                     <?php if ( file_exists(APPPATH.'assets/recipe_img/'.$recipe_item['_imgpath'])) {

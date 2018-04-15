@@ -8,7 +8,7 @@ class Map extends CI_Controller {
     }
     
     public function index() {
-
+        ob_start();
         $data['title'] = 'map';
         $data['recipes'] = $this->recipes->get_recipes_map();
         $data['recipesjs'] = $this->recipes->get_recipes_m();

@@ -7,6 +7,7 @@ class Contact extends CI_Controller {
     }
 
     public function index() {
+        ob_start();
         $data['title'] = 'contact';
         
         echo '<script>';

@@ -8,6 +8,7 @@ class Advsearch extends CI_Controller {
     }
     
     public function index() {
+        ob_start();
 		$data['title'] = 'advsearch';
 		$data['recipes'] = $this->recipes->get_recipes();
         $data['recipesallfull'] = $this->recipes->get_allfullrecipes();
