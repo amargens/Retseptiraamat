@@ -7,6 +7,7 @@
     "account": "Konto",
     "register": "Loo kasutaja",
     "create": "Retsepti lisamine",
+    "stats": "Statistika",
 	"title": "Nimi",
     "image": "Pilt",
     "text": "Tekst",
@@ -17,11 +18,13 @@
     "addbtn_ee": "Lisa",
     "addedIng_ee": "Lisatud koostisosad:",
     "removeIng_ee": "Eemalda",
+    "search_adv": "Otsi",
 	"search": "Otsi retsepti...",
 	"header": "Otsi retsepte pealkirja järgi",
     "offline" : "Interneti ühendus puudub!",
     "offlinesearch" : "Sellise nimega retsepte ei ole!",
+    "offlinesearching" : "Selliste koostisosadega retsepte ei leitud.",
+    "offlinesearchnoing" : "Koostisosade otsingul puudub sisend.",
     "searchlabel": "Sisesta märksõna:",
     "contact": "Kontakt"
-
 }

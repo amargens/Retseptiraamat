@@ -1,20 +1,6 @@
 
 window.onload = function() {
-	if (typeof jQuery === "undefined") {
-    	var script = document.createElement('script');
-    	script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js';
-    	script.type = 'text/javascript';
-    	document.getElementsByTagName('head')[0].appendChild(script);
-    
-    }
-    
-    if (typeof jQuery === "undefined") {
-    	var script = document.createElement('script');
-        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDypSGQV6mFDr0wnoZ1IeXBb_PzvruPuUU';
-    	script.type = 'text/javascript';
-        document.getElementsByTagName('head')[0].appendChild(script);
-    }
-    
+	
     var lang = getCookie('lang');
     if (lang !== "") {
         document.getElementById('sel-lang').value = lang;
@@ -34,43 +20,34 @@ window.onload = function() {
         addIngridient();
     });
     
-    
-    document.getElementById('searchbtn').addEventListener("click", function(){
-        //alert(navigator.onLine);
-        if (navigator.onLine){
-            document.getElementById('offlinealert').className = "container inputhidden";
-            document.getElementById('offlinealertsearch').className = "container inputhidden";
-            document.searchform.submit();
-        } else{
-            document.getElementById('offlinealert').className = "container";
-            var key = document.getElementById('search').value;
-            var rows = document.getElementsByTagName("tr");
-            var count = 0;
-            for (var i = 0; i<rows.length; i++){
-                var str = rows[i].firstElementChild.innerHTML;
-                if (i !== 0 && str.toLowerCase().indexOf(key.toLowerCase()) !== -1){
-                    count +=1;
-                    rows[i].className = "";
-                } else if(i !== 0) {
-                    rows[i].className = "inputhidden";
-                }
+    document.getElementById('offlinealert').addEventListener("click", function(){
+        $.ajax({
+            type: "GET",
+            url: "concheck",
+            success: function(msg){
+                document.getElementById('offlinealert').className = "container inputhidden";
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                document.getElementById('offlinealert').className = "container";
             }
-            if (count === 0){
-                document.getElementById('offlinealertsearch').className = "container";
-                for (var i = 0; i<rows.length; i++){
-                    if (i !== 0){
-                        rows[i].className = "";
-                    }
-            }
-            } else {
-                document.getElementById('offlinealertsearch').className = "container inputhidden";
-            }
-            
-        }
-        
+        });
     });
     
+    document.getElementById('searchbtn').addEventListener("click", function(){
+        searchCon();
+    });
     
+    document.getElementById('searchIngBtn').addEventListener("click", function(){
+        if (document.getElementById('addedIngList_ee').childElementCount > 0){
+            document.getElementById('offlinealertsearchnoing').className = "container inputhidden";
+            searchIngCon();
+        }
+        else {
+            document.getElementById('offlinealertsearchnoing').className = "container";
+        }
+    });
+    
+    sendstats();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -114,7 +91,99 @@ function addIngridient() {
     document.getElementById('addedIngList_ee').appendChild(addedIng);
 }
 
+function searchIngCon(){
+    $.ajax({
+        type: "GET",
+        url: "concheck",
+        success: function(msg){
+            document.getElementById('offlinealert').className = "container inputhidden";
+            document.getElementById('offlinealertsearch').className = "container inputhidden";
+            document.getElementById('offlinealertsearching').className = "container inputhidden";
+            document.searchingform.submit();
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            
+            document.getElementById('offlinealert').className = "container";
+            var recipeIds = [];
+            var keys = document.getElementById('addedIngList_ee').getElementsByClassName("ingredient");
+            for (var i = 0; i<data.length; i++){
+                for (var j = 0; j<keys.length; j++){
+                    if (data[i]['_ingredient'].toLowerCase().indexOf(keys[j].innerHTML.toLowerCase()) !== -1){
+                        recipeIds.push(data[i]['_recipeID']);
+                    } 
+                }
+            }
+            var ids = Array.from(new Set(recipeIds));
+            for (var i = 0; i<ids.length; i++){
+                if (recipeIds.filter(function(x){return x==ids[i]}).length !== keys.length){
+                    var index = ids.indexOf(ids[i]);
+                    if (index > -1) {
+                        ids.splice(index, 1);
+                        i-=1;
+                    }
+                }
+            }
+            var rows = document.getElementsByTagName("tr");
+            var count = 0;
+            for (var i = 0; i<rows.length; i++){
+                if (i !== 0 && ids.indexOf(rows[i].id) !== -1 ){
+                    count +=1;
+                    rows[i].className = "";
+                } else if(i !== 0) {
+                    rows[i].className = "inputhidden";
+                }
+            }
+            if (count === 0){
+                document.getElementById('offlinealertsearching').className = "container";
+                for (var i = 0; i<rows.length; i++){
+                    if (i !== 0){
+                        rows[i].className = "";
+                    }
+            }
+            } else {
+                document.getElementById('offlinealertsearching').className = "container inputhidden";
+            }
+        }
+    });
+}
 
+function searchCon(){ //test lauaarvutiga ja lisada offline teatele refresh nupp
+    $.ajax({
+        type: "GET",
+        url: "concheck",
+        success: function(msg){
+            document.getElementById('offlinealert').className = "container inputhidden";
+            document.getElementById('offlinealertsearch').className = "container inputhidden";
+            document.searchform.submit();
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            
+            document.getElementById('offlinealert').className = "container";
+            var key = document.getElementById('search').value;
+            var rows = document.getElementsByTagName("tr");
+            var count = 0;
+            for (var i = 0; i<rows.length; i++){
+                var str = rows[i].firstElementChild.innerHTML;
+                if (i !== 0 && str.toLowerCase().indexOf(key.toLowerCase()) !== -1){
+                    count +=1;
+                    rows[i].className = "";
+                } else if(i !== 0) {
+                    rows[i].className = "inputhidden";
+                }
+            }
+            if (count === 0){
+                document.getElementById('offlinealertsearch').className = "container";
+                for (var i = 0; i<rows.length; i++){
+                    if (i !== 0){
+                        rows[i].className = "";
+                    }
+            }
+            } else {
+                document.getElementById('offlinealertsearch').className = "container inputhidden";
+            }
+        }
+    });
+}
 
 function Translate() { 
     //initialization
@@ -142,8 +211,8 @@ function Translate() {
                                 var key = elem.getAttribute(_self.attribute);
                                  
                                 if(key !== null) {
-                                     console.log(key);
-                                     if ( key === 'search_adv' || key === 'search'){
+                                    console.log(key);
+                                    if ( key === 'search'){
                                         elem.placeholder = LngObject[key];
                                     } else {
                                         elem.innerHTML = LngObject[key]  ;

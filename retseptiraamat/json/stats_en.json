@@ -8,7 +8,8 @@
     "register": "Register",
     "create": "Create Recipe",
     "stats": "Statistics",
-    "header": "Recipe",
-    "favbtn": "Favourite",
-    "contact": "Contact"
+    "header": "Statistics",
+    "checkBrowser": "Used browser",
+    "getTime": "Visit time",
+    "getpage": "Visited page"
 }

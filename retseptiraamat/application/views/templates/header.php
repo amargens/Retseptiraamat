@@ -18,7 +18,8 @@
         integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
         crossorigin=""></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster-src.js"></script>
-    
+    <script type = "text/javascript" src = "<?php echo base_url();  ?>js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type = "text/javascript" src = "<?php echo base_url();  ?>js/app.js"></script>
     <script type = "text/javascript" src = "<?php echo base_url();  ?>js/<?php echo $title; ?>.js"></script>
     
@@ -38,6 +39,7 @@
                 <li><a href="<?php echo base_url();?>index.php/home/" data-tag="home"></a> </li>
                 <li><a href="<?php echo base_url();?>index.php/advsearch" data-tag="advsearch"></a> </li>
                 <li><a href="<?php echo base_url();?>index.php/map/" data-tag="map"></a> </li>
+                <li><a href="<?php echo base_url();?>index.php/stats/" data-tag="stats"></a> </li>
                 <?php if(!$this->session->userdata('sisselogitud')) : ?>
                     <li><a href="<?php echo base_url();?>index.php/users/login" data-tag="login"></a> </li>
                     <li><a href="<?php echo base_url();?>index.php/users/register/" data-tag="register"></a> </li>

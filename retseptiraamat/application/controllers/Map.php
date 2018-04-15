@@ -14,6 +14,7 @@ class Map extends CI_Controller {
         $data['recipesjs'] = $this->recipes->get_recipes_m();
         
         echo '<script>';
+        echo 'var title = ' . json_encode($data['title']) . ';';
         echo 'var data = ' . json_encode($data['recipesjs']) . ';';
         echo '</script>';
 
@@ -22,4 +23,7 @@ class Map extends CI_Controller {
         $this->load->view('templates/footer', $data);
 	}
     
+    public function sendstats(){
+        $this->recipes->sendstats();
+    }
 }

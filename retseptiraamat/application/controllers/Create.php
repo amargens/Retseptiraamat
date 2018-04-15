@@ -20,6 +20,10 @@ class Create extends CI_Controller
 
         $data['title'] = 'create';
 
+        echo '<script>';
+        echo 'var title = ' . json_encode($data['title']) . ';';
+        echo '</script>';
+        
         $this->form_validation->set_rules('title_ee', 'Title', 'required');
         //$this->form_validation->set_rules('imageUpload', 'Image', 'required');
         //$this->form_validation->set_rules('imageUpload', 'Image', 'callback_image_upload');
@@ -94,6 +98,9 @@ class Create extends CI_Controller
         
     }
     
+    public function sendstats(){
+        $this->recipes->sendstats();
+    }
 }
 
 

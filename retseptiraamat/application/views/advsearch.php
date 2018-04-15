@@ -1,8 +1,14 @@
 <div class="container inputhidden" id="offlinealert">
-            <p class="alert alert-danger" data-tag="offline"></p>
+    <p class="alert alert-danger" data-tag="offline"></p>
 </div>
 <div class="container inputhidden" id="offlinealertsearch">
-            <p class="alert alert-danger" data-tag="offlinesearch"></p>
+    <p class="alert alert-danger" data-tag="offlinesearch"></p>
+</div>
+<div class="container inputhidden" id="offlinealertsearching">
+    <p class="alert alert-danger" data-tag="offlinesearching"></p>
+</div>
+<div class="container inputhidden" id="offlinealertsearchnoing">
+    <p class="alert alert-danger" data-tag="offlinesearchnoing"></p>
 </div>
 
 <div class="col-md-6 col-md-offset-2">
@@ -22,14 +28,15 @@
 
 <div class="col-md-6 col-md-offset-2">
 	<h2 data-tag="header_ee"></h2>
-    <form class="form-inline" role="form" action="<?php echo base_url().'index.php/advsearch/ingredientsearch'; ?>" method="post">
+    <form class="form-inline" name="searchingform"  role="form" action="<?php echo base_url().'index.php/advsearch/ingredientsearch'; ?>" method="post">
         <label  data-tag="addIng_ee"></label><br />
 		<input type="text" title="addIngredient" id="addIngredient_ee" name="addIngredient_ee" data-tag="sisesta_aine" />
 		<button type="button" id="addIng_ee"  data-tag="addbtn_ee"></button><br />
 		<br />
 		<label  data-tag="addedIng_ee"></label>
 		<ul id="addedIngList_ee" ></ul>
-        <input type="submit" name="submit" data-tag="search_adv" />
+        <button type="button" id="searchIngBtn"  data-tag="search_adv"></button><br />
+        <input type="submit" class="inputhidden" value="Submit" />
 		<br />
 		<br />
     </form>

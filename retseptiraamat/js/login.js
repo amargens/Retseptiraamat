@@ -1,13 +1,5 @@
 window.onload = function() {
     
-    if (typeof jQuery === "undefined") {
-    	var script = document.createElement('script');
-    	script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js';
-    	script.type = 'text/javascript';
-    	document.getElementsByTagName('head')[0].appendChild(script);
-    
-    }
-    
     var lang = getCookie('lang');
     if (lang !== "") {
         document.getElementById('sel-lang').value = lang;
@@ -22,6 +14,7 @@ window.onload = function() {
         changeLang(document.getElementById('sel-lang').value);
     });
     
+    sendstats();
 }
 
 

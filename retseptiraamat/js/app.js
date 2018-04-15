@@ -45,3 +45,86 @@ function checkCookie() {
         }
     }
 }
+
+function sendstats(){
+    var keyVals = { checkBrowser : checkBrowser(), getTime : getTime(), title : title };
+    $.ajax({
+        type: "POST",
+        url: "sendstats",
+        data: keyVals,
+        dataType: "text",
+        success: function(msg){
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+}
+
+function checkBrowser() {
+        // Opera 8.0+
+    var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+    // Firefox 1.0+
+    var isFirefox = typeof InstallTrigger !== 'undefined';
+
+    // Safari 3.0+ "[object HTMLElementConstructor]" 
+    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification);
+
+    // Internet Explorer 6-11
+    var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+    // Edge 20+
+    var isEdge = !isIE && !!window.StyleMedia;
+
+    // Chrome 1+
+    var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+    // Blink engine detection
+    var isBlink = (isChrome || isOpera) && !!window.CSS;
+    
+    if (isFirefox) {
+        return 'Firefox';
+    } else if (isChrome) {
+        return 'Chrome';
+    } else if (isSafari) {
+        return 'Safari';
+    } else if (isOpera) {
+        return 'Opera';
+    } else if (isIE) {
+        return 'IE';
+    } else if (isEdge) {
+        return 'Edge';
+    } else {
+        return 'other';
+    }
+}
+
+function getTime(){
+    var d = new Date();
+    var h = d.getHours();
+    if (h < 2) {
+        return '0-2';
+    } else if (h < 4) {
+        return '2-4';
+    } else if (h < 6) {
+        return '4-6';
+    } else if (h < 8) {
+        return '6-8';
+    } else if (h < 10) {
+        return '8-10';
+    } else if (h < 12) {
+        return '10-12';
+    } else if (h < 14) {
+        return '12-14';
+    } else if (h < 16) {
+        return '14-16';
+    } else if (h < 18) {
+        return '16-18';
+    } else if (h < 20) {
+        return '18-20';
+    } else if (h < 22) {
+        return '20-22';
+    } else {
+        return '22-24';
+    }
+}

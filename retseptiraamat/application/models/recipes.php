@@ -31,6 +31,22 @@ class Recipes extends CI_Model {
         return $query->result_array();
     }
     
+    public function get_allfullrecipes() {
+        $cookie_lang = "lang";
+        $lang = "ee";
+        if(isset($_COOKIE[$cookie_lang])) {
+            $lang = $_COOKIE[$cookie_lang];
+        }
+        if ($lang == "ee") {
+            $sql = "SELECT * FROM v_retseptid_full;";
+        } else if ($lang == "en") {
+            $sql = "SELECT * FROM v_retseptideng_full;";
+        }
+        $query = $this->db->query($sql);
+        
+        return $query->result_array();
+    }
+    
     public function get_recipes_m() {
         $cookie_lang = "lang";
         $lang = "ee";
@@ -302,5 +318,49 @@ class Recipes extends CI_Model {
         
     }
     
+    public function sendstats(){
+        
+        $checkBrowser = $this->input->post('checkBrowser');
+        $getTime = $this->input->post('getTime');
+        $title = $this->input->post('title');
+        echo $checkBrowser;
+        echo $getTime;
+        echo $title;
+        $sql = "CALL p_stats(?, ?, ?)";
+        $this->db->query($sql, array($checkBrowser, $getTime, $title));
+    }
+    
+    public function get_statsbrowser() {
+        
+        $sql = "SELECT * FROM v_statsbrowser;";
+        $query = $this->db->query($sql);
+        $qarray = $query->result_array();
+        if (sizeof($qarray) === 0){
+            return NULL;
+        }
+        return $qarray;
+    }
+    
+    public function get_statspage() {
+        
+        $sql = "SELECT * FROM v_statspage;";
+        $query = $this->db->query($sql);
+        $qarray = $query->result_array();
+        if (sizeof($qarray) === 0){
+            return NULL;
+        }
+        return $qarray;
+    }
+    
+    public function get_statstime() {
+        
+        $sql = "SELECT * FROM v_statstime;";
+        $query = $this->db->query($sql);
+        $qarray = $query->result_array();
+        if (sizeof($qarray) === 0){
+            return NULL;
+        }
+        return $qarray;
+    }
 }
 ?>

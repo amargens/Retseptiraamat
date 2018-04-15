@@ -13,6 +13,10 @@ class Account extends CI_Controller {
         $data['favrecipes'] = $this->recipes->get_favrecipes();
         $data['userrecipes'] = $this->recipes->get_userrecipe();
 
+        echo '<script>';
+        echo 'var title = ' . json_encode($data['title']) . ';';
+        echo '</script>';
+        
         $this->load->view('templates/header', $data);
         $this->load->view('account', $data);
         $this->load->view('templates/footer', $data);
@@ -25,6 +29,8 @@ class Account extends CI_Controller {
         
         redirect('/account/index');
     }
-   
     
+    public function sendstats(){
+        $this->recipes->sendstats();
+    }
 }

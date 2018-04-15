@@ -3,6 +3,10 @@
 class Users extends CI_Controller{
     public function register(){
         $data['title'] = 'register';
+        
+        echo '<script>';
+        echo 'var title = ' . json_encode($data['title']) . ';';
+        echo '</script>';
 
         $this->form_validation->set_rules('nimi', 'Nimi', 'required');
         $this->form_validation->set_rules('kasutajanimi', 'Kasutajanimi', 'required|callback_check_username_exists');
@@ -54,6 +58,10 @@ class Users extends CI_Controller{
 
     public function login(){
         $data['title'] = 'login';
+        
+        echo '<script>';
+        echo 'var title = ' . json_encode($data['title']) . ';';
+        echo '</script>';
 
         $this->form_validation->set_rules('kasutajanimi', 'Kasutajanimi', 'required');
         $this->form_validation->set_rules('parool', 'Parool', 'required');
@@ -154,5 +162,9 @@ class Users extends CI_Controller{
         else{
             return false;
         }
+    }
+    
+    public function sendstats(){
+        $this->recipes->sendstats();
     }
 }

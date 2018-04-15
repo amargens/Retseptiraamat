@@ -1,21 +1,6 @@
 
 window.onload = function() {
     
-    if (typeof jQuery === "undefined") {
-    	var script = document.createElement('script');
-    	script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js';
-    	script.type = 'text/javascript';
-    	document.getElementsByTagName('head')[0].appendChild(script);
-    
-    }
-    
-    if (typeof jQuery === "undefined") {
-    	var script = document.createElement('script');
-        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDypSGQV6mFDr0wnoZ1IeXBb_PzvruPuUU';
-    	script.type = 'text/javascript';
-        document.getElementsByTagName('head')[0].appendChild(script);
-    }
-    
     var lang = getCookie('lang');
     if (lang !== "") {
         document.getElementById('sel-lang').value = lang;
@@ -85,6 +70,7 @@ window.onload = function() {
         }
     });
     
+    sendstats();
 }
 
 document.addEventListener('DOMContentLoaded', function() {

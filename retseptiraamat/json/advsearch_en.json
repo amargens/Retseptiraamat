@@ -7,6 +7,7 @@
     "account": "Account",
     "register": "Register",
     "create": "Create Recipe",
+    "stats": "Statistics",
 	"title": "Name",
     "image": "Image",
     "text": "Text",
@@ -17,10 +18,13 @@
     "addbtn_ee": "Add",
     "addedIng_ee": "Added ingredients:",
     "removeIng_ee": "remove",
+    "search_adv": "Search",
 	"search": "Search for a recipe...",
 	"header": "Search recipes by title",
     "offline" : "No Internet access!",
     "offlinesearch" : "No recipes with that name!",
+    "offlinesearching" : "No recipes found with these ingredients.",
+    "offlinesearchnoing" : "Ingredient search has no input.",
     "searchlabel": "Enter keyword:",
     "contact": "Contact"
 }

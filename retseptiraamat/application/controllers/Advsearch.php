@@ -10,9 +10,11 @@ class Advsearch extends CI_Controller {
     public function index() {
 		$data['title'] = 'advsearch';
 		$data['recipes'] = $this->recipes->get_recipes();
+        $data['recipesallfull'] = $this->recipes->get_allfullrecipes();
         
         echo '<script>';
-        echo 'var data = ' . json_encode($data['recipes']) . ';';
+        echo 'var title = ' . json_encode($data['title']) . ';';
+        echo 'var data = ' . json_encode($data['recipesallfull']) . ';';
         echo '</script>';
 		
         $this->load->view('templates/header', $data);
@@ -95,5 +97,13 @@ class Advsearch extends CI_Controller {
             
             redirect('/advsearch/index');
         }
+    }
+    
+    public function concheck(){
+        return 1;
+    }
+    
+    public function sendstats(){
+        $this->recipes->sendstats();
     }
 }

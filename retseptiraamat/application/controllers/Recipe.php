@@ -15,6 +15,10 @@ class Recipe extends CI_Controller {
         $data['favourites'] = $this->recipes->get_favourites($userid);
         $data['recipe'] = $this->recipes->get_recipes($index);
 
+        echo '<script>';
+        echo 'var title = ' . json_encode($data['title']) . ';';
+        echo '</script>';
+        
         $this->load->view('templates/header', $data);
         $this->load->view('recipe', $data);
         $this->load->view('templates/footer', $data);
@@ -27,6 +31,10 @@ class Recipe extends CI_Controller {
         $this->recipes->set_favourite();
         
         redirect('/recipe/view/'.$index);
+    }
+    
+    public function sendstats(){
+        $this->recipes->sendstats();
     }
     
 }

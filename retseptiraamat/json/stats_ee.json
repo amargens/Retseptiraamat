@@ -8,11 +8,8 @@
     "register": "Loo kasutaja",
     "create": "Retsepti lisamine",
     "stats": "Statistika",
-    "title": "Nimi",
-    "image": "Pilt",
-    "text": "Tekst",
-    "more": "Rohkem",
-    "readmore": "Loe Rohkem",
-    "header": "Retsepti kaart",
-    "contact": "Kontakt"
+    "header": "Statistika",
+    "checkBrowser": "Kasutatud veebilehitsejad",
+    "getTime": "Külastuse aeg",
+    "getpage": "Külastatud leht"
 }
