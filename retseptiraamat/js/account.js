@@ -34,6 +34,33 @@ window.onload = function() {
         document.getElementById('accsetcont').className = "";
     });
     
+    document.getElementById('idnumbtn').addEventListener("click", function(){
+        if (document.getElementById('idnuminput').value == ""){
+            document.getElementById('inputerror').className = "container";
+            document.getElementById('changeerror').className = "container inputhidden";
+            document.getElementById('changesuccess').className = "container inputhidden";
+        } else {
+            document.getElementById('inputerror').className = "container inputhidden";
+            var keyVals = { idnum : document.getElementById('idnuminput').value };
+            $.ajax({
+                type: "POST",
+                url: "saveidnum",
+                data: keyVals,
+                dataType: "text",
+                success: function(msg){
+                    
+                    document.getElementById('changesuccess').className = "container";
+                    document.getElementById('changeerror').className = "container inputhidden";
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    
+                    document.getElementById('changeerror').className = "container";
+                    document.getElementById('changesuccess').className = "container inputhidden";
+                }
+            });
+        }
+    });
+    
     sendstats();
 }
 
@@ -68,6 +95,8 @@ function Translate() {
                                 var key = elem.getAttribute(_self.attribute);
                                 if ( key === 'favbtn'){
                                     elem.innerHTML = LngObject[key] + " " + elem.innerHTML;
+                                }else if ( key === 'changeidnum'){
+                                    elem.placeholder = LngObject[key];
                                 }else if(key !== null) {
                                     console.log(key);
                                     elem.innerHTML = LngObject[key]  ;

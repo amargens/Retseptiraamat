@@ -39,4 +39,19 @@
                 return false;
             }
         }
+        
+        public function saveidnum(){
+            $userid = $this->session->userdata('kasutaja_id');
+            $idnum = $this->input->post('idnum');
+            $sql = "CALL p_idnum(?, ?)";
+            $this->db->query($sql, array($userid, $idnum));
+        }
+        
+        public function getidnum(){
+            $userid = $this->session->userdata('kasutaja_id');
+            $sql = "SELECT idnum FROM v_kasutajad WHERE _userID = ?;";
+        
+            $query = $this->db->query($sql, array($userid));
+            return $qarray;
+        }
     }

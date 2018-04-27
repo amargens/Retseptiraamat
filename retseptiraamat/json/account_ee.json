@@ -14,6 +14,11 @@
     "userres": "Teie retseptid",
     "accset": "Konto seaded",
     "favbtn": "Lemmik",
+    "changeerror": "Midagi läks valesti, muutus ei olnud edukas.",
+    "inputerror": "Midagi läks valesti, sisend on tühi.",
+    "changesuccess": "Kasutaja muutus edukas.",
+    "changeidnum": "Isikukood",
+    "changesave": "Salvesta",
     "nofavres": "Me ei leidnud ühtegi selle konto lemmik retsepti.",
     "nouserres": "Me ei leidnud ühtegi selle konto poolt loodud retsepti.",
     "contact": "Kontakt"

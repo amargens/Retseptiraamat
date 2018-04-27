@@ -1,4 +1,14 @@
 
+<div class="container inputhidden" id="changeerror">
+    <p class="alert alert-danger" data-tag="changeerror"></p>
+</div>
+<div class="container inputhidden" id="inputerror">
+    <p class="alert alert-danger" data-tag="inputerror"></p>
+</div>
+<div class="container inputhidden" id="changesuccess">
+    <p class="alert alert-success" data-tag="changesuccess"></p>
+</div>
+
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <h2 data-tag="header" id="header"></h2>
@@ -92,6 +102,14 @@
             
             <div class="inputhidden" id="accsetcont">
                 <h3 data-tag="accset"></h3>
+                
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="idnuminput" data-tag="changeidnum" placeholder="Recipient's username">
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-outline-secondary" id="idnumbtn" type="button" data-tag="changesave"></button>
+                </div>
+                
             </div>
                 
         </div>

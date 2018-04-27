@@ -6,18 +6,21 @@
         
         <div class="row">
             <h4 data-tag="checkBrowser"></h4>
+            <h6 id="countBrowser"></h6>
             <div id="checkBrowser">
                 
             </div>
         </div>
         <div class="row">
             <h4 data-tag="getTime"></h4>
+            <h6 id="countTime"></h6>
             <div id="getTime">
                 
             </div>
         </div>
         <div class="row">
             <h4 data-tag="getpage"></h4>
+            <h6 id="countPage"></h6>
             <div id="getpage">
                 
             </div>

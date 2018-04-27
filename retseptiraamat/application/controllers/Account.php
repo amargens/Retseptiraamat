@@ -5,10 +5,11 @@ class Account extends CI_Controller {
     public function __construct() {
                 parent::__construct();
                 $this->load->model('recipes');
+                $this->load->model('user_model');
     }
     
     public function index() {
-        ob_start();
+        
         $data['title'] = 'account';
         $data['favrecipes'] = $this->recipes->get_favrecipes();
         $data['userrecipes'] = $this->recipes->get_userrecipe();
@@ -32,5 +33,9 @@ class Account extends CI_Controller {
     
     public function sendstats(){
         $this->recipes->sendstats();
+    }
+    
+    public function saveidnum(){
+        $this->user_model->saveidnum();
     }
 }

@@ -19,14 +19,44 @@ window.onload = function() {
     loadbrowser();
     loadtime();
     loadpage();
+    setInterval(function(){ loadstats(); }, 5000);
+    
+}
+
+function loadstats(){
+    
+    var a = [];
+    var results = $.ajax({
+        type: "GET",
+        url: "pushstats",
+        async: false,
+        dataType: "json",
+        success: function(results){
+            for(i in results){
+                a.push(results[i]);
+            }
+            dataBrowser = a[0];
+            dataTime = a[1];
+            datapage = a[2];
+            loadbrowser();
+            loadtime();
+            loadpage();
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert("data push ended");
+        }
+    }).responseJSON;
     
 }
 
 function loadbrowser(){
     // Load google charts
     var arr = [];
+    var count = 0;
+    //alert(dataBrowser);
     for (var i = 0; i<dataBrowser.length; i++){
         arr.push([dataBrowser[i]['browser'], parseInt(dataBrowser[i]['count(browser)']) ]);
+        count += parseInt(dataBrowser[i]['count(browser)']);
     }
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawbrowser);
@@ -47,15 +77,18 @@ function loadbrowser(){
         var chart = new google.visualization.PieChart(document.getElementById('checkBrowser'));
         chart.draw(data, options);
     }
+    document.getElementById('countBrowser').innerHTML = "data count: " + count;
+    //alert(count);
 }
 
 function loadtime(){
     // Load google charts
     // google.charts.load('current', {'packages':['corechart']});
     var arr = [];
+    var count = 0;
     for (var i = 0; i<dataTime.length; i++){
-        
         arr.push([dataTime[i]['visittime'], parseInt(dataTime[i]['count(visittime)']) ]);
+        count += parseInt(dataTime[i]['count(visittime)']);
     }
     google.charts.setOnLoadCallback(drawtime);
     // Draw the chart and set the chart values
@@ -74,14 +107,17 @@ function loadtime(){
         var chart = new google.visualization.PieChart(document.getElementById('getTime'));
         chart.draw(data, options);
     }
+    document.getElementById('countTime').innerHTML = "data count: " + count;
 }
 
 function loadpage(){
     // Load google charts
     // google.charts.load('current', {'packages':['corechart']});
     var arr = [];
+    var count = 0;
     for (var i = 0; i<datapage.length; i++){
         arr.push([datapage[i]['page'], parseInt(datapage[i]['count(page)']) ]);
+        count += parseInt(datapage[i]['count(page)']);
     }
     google.charts.setOnLoadCallback(drawpage);
     
@@ -101,6 +137,7 @@ function loadpage(){
         var chart = new google.visualization.PieChart(document.getElementById('getpage'));
         chart.draw(data, options);
     }
+    document.getElementById('countPage').innerHTML = "data count: " + count;
 }
 
 

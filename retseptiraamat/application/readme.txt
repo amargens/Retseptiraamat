@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS `kasutajad` (
   `favourites` char(50) DEFAULT NULL,
   `kasutajanimi` char(255) NOT NULL,
    `parool` char(255) NOT NULL,
+   `idnum` char(50) DEFAULT NULL,
    `registr_kuup` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
@@ -80,6 +81,14 @@ SET favourites = in_fav
 WHERE id = in_recipeID;
 END//
 
+DROP PROCEDURE IF EXISTS `p_idnum`;//
+CREATE PROCEDURE `p_idnum` (in_recipeID int(11), in_idnum char(50))
+BEGIN
+UPDATE kasutajad
+SET idnum = in_idnum
+WHERE id = in_recipeID;
+END//
+
 DROP PROCEDURE IF EXISTS `p_stats`;//
 CREATE PROCEDURE `p_stats` (in_browser char(50), in_visittime char(50), in_page char(50))
 BEGIN
@@ -99,6 +108,10 @@ SELECT _recipeID, _userID, _title, _imgpath, _text FROM retseptid;
 DROP VIEW IF EXISTS `v_retseptideng`;
 CREATE VIEW `v_retseptidEng` (_recipeID, _userID, _title, _imgpath, _text) AS
 SELECT _recipeID, _userID, IFNULL(_titleEng,_title), _imgpath, IFNULL(_textEng,_text) FROM retseptid;
+
+DROP VIEW IF EXISTS `v_kasutajad`;
+CREATE VIEW `v_kasutajad` AS
+SELECT * FROM kasutajad;
 
 DROP VIEW IF EXISTS `v_favourites`;
 CREATE VIEW `v_favourites` AS
