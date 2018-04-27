@@ -2,6 +2,11 @@
 
 class Stats extends CI_Controller {
     
+    public function __construct() {
+                parent::__construct();
+                $this->load->model('recipes');
+    }
+    
     public function index() {
 
         $data['title'] = 'stats';
