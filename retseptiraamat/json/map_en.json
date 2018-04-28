@@ -14,5 +14,7 @@
     "more": "More",
     "readmore": "Read More",
     "header": "Recipe map",
-    "contact": "Contact"
+    "contact": "Contact",
+    "mapi": "Map:",
+    "popup": "This map is used to see the location where people have posted their recipes. If you press on the blue token you can see more information what recipes have been posted from that location."
 }

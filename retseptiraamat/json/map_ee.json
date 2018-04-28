@@ -14,5 +14,7 @@
     "more": "Rohkem",
     "readmore": "Loe Rohkem",
     "header": "Retsepti kaart",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "mapi": "Kaart:",
+    "popup": "Sellele kaardile ilmuvad asukohad, kus retseptid on lisatud. Klõpsates ühele tähistest näitab see veelgi lähemalt informatsiooni retseptide kohta."
 }

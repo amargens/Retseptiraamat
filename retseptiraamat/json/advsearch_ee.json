@@ -26,5 +26,6 @@
     "offlinesearching" : "Selliste koostisosadega retsepte ei leitud.",
     "offlinesearchnoing" : "Koostisosade otsingul puudub sisend.",
     "searchlabel": "Sisesta märksõna:",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "popup": "Siin saame retsepte otsida koostisosade järgi. Mõtle välja retsepti koostisosa ja lisa see. Seejärel on võimalus koostisosi veel lisada. Lõpuks esitage lisatud koostisosad."
 }

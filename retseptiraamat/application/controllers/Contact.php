@@ -15,7 +15,7 @@ class Contact extends CI_Controller {
         echo '</script>';
         
         $this->load->view('templates/header', $data);
-        $this->load->view('Contact', $data);
+        $this->load->view('contact', $data);
         $this->load->view('templates/footer', $data);
     }
     

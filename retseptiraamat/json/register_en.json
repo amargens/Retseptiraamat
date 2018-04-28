@@ -20,5 +20,6 @@
     "pswrdRLbl": "Repeat password",
     "pswrdR": "Password",
     "loginBtn": "Register",
-    "contact": "Contact"
+    "contact": "Contact",
+    "popup": "Username is used for login."
 }

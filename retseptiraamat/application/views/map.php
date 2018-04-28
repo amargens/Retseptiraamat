@@ -2,6 +2,16 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <h2 data-tag="header"></h2>
+        <label data-tag="mapi"></label>
+        <a class="trigger_popup_fricc"><img src="<?php echo base_url(); ?>application/assets/proov2.png" alt="hint"></a>
+
+        <div class="hover_bkgr_fricc">
+            <span class="helper"></span>
+            <div>
+                <div class="popupCloseButton">x</div>
+                <p data-tag="popup"></p>
+            </div>
+        </div>
         <div id="map"></div>
         <form method="post" id="formmap" class="inputhidden" name="formmap" accept-charset="utf-8">
             <input type="text" id="inputmap" value="" name="inputmap" />

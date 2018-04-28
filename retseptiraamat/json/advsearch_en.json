@@ -26,5 +26,6 @@
     "offlinesearching" : "No recipes found with these ingredients.",
     "offlinesearchnoing" : "Ingredient search has no input.",
     "searchlabel": "Enter keyword:",
-    "contact": "Contact"
+    "contact": "Contact",
+    "popup": "Here we can find recipes by the ingredients. Think of an ingredient and add it. After that there it is possible to add more ingredients or submit."
 }

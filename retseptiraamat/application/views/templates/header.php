@@ -22,6 +22,7 @@
     <script type = "text/javascript" src = "<?php echo base_url();  ?>js/jquery-fallback.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type = "text/javascript" src = "<?php echo base_url();  ?>js/app.js"></script>
+    <script type = "text/javascript" src = "<?php echo base_url();  ?>js/hint.js"></script>
     <script type = "text/javascript" src = "<?php echo base_url();  ?>js/<?php echo $title; ?>.js"></script>
     
 </head>

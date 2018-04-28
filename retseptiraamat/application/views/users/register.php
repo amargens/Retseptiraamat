@@ -14,6 +14,16 @@
         </div>
         <div class="form-group">
             <label data-tag="usernameLbl"></label>
+            <a class="trigger_popup_fricc"><img src="<?php echo base_url(); ?>application/assets/proov2.png" alt="hint"></a>
+
+            <div class="hover_bkgr_fricc">
+                <span class="helper"></span>
+                <div>
+                    <div class="popupCloseButton">x</div>
+                    <p data-tag="popup"></p>
+                </div>
+            </div>
+            <br />
             <input type="text" class="form-control" name="kasutajanimi" data-tag="username" >
         </div>
         <div class="form-group">

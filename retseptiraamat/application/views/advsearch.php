@@ -30,6 +30,15 @@
 	<h2 data-tag="header_ee"></h2>
     <form class="form-inline" name="searchingform"  role="form" action="<?php echo base_url().'index.php/advsearch/ingredientsearch'; ?>" method="post">
         <label  data-tag="addIng_ee"></label><br />
+        <a class="trigger_popup_fricc"><img src="<?php echo base_url(); ?>application/assets/proov2.png" alt="hint"></a>
+
+        <div class="hover_bkgr_fricc">
+            <span class="helper"></span>
+            <div>
+                <div class="popupCloseButton">x</div>
+                <p data-tag="popup"></p>
+            </div>
+        </div>
 		<input type="text" title="addIngredient" id="addIngredient_ee" name="addIngredient_ee" data-tag="sisesta_aine" />
 		<button type="button" id="addIng_ee"  data-tag="addbtn_ee"></button><br />
 		<br />
