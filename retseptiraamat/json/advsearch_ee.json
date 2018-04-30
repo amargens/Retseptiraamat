@@ -15,8 +15,10 @@
     "readmore": "Loe Rohkem",
     "header_ee": "Otsi retsepte koostisosade järgi",
     "addIng_ee": "Lisa koostisosad:",
+	"excludeIng_ee": "Lisa kõrvaldatavad koostisosad:",
     "addbtn_ee": "Lisa",
     "addedIng_ee": "Lisatud koostisosad:",
+	"excludedIng_ee": "Kõrvaldatavad koostisosad:",
     "removeIng_ee": "Eemalda",
     "search_adv": "Otsi",
 	"search": "Otsi retsepti...",
@@ -27,5 +29,6 @@
     "offlinesearchnoing" : "Koostisosade otsingul puudub sisend.",
     "searchlabel": "Sisesta märksõna:",
     "contact": "Kontakt",
-    "popup": "Siin saame retsepte otsida koostisosade järgi. Mõtle välja retsepti koostisosa ja lisa see. Seejärel on võimalus koostisosi veel lisada. Lõpuks esitage lisatud koostisosad."
+    "popup": "Lisa ükshaaval koostisosad, mis otsitavates retseptides esinema peaksid.",
+	"popup2": "Lisa ükshaaval koostisosad, mida otsitavates retseptides esineda ei tohiks."
 }

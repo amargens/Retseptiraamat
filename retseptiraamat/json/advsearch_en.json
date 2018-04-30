@@ -14,9 +14,11 @@
     "more": "More",
     "readmore": "Read More",
     "header_ee": "Search recipes by ingredients",
-    "addIng_ee": "Enter ingredients:",
+    "addIng_ee": "Insert ingredients:",
+	"excludeIng_ee": "Insert ingredients to be excluded:",
     "addbtn_ee": "Add",
     "addedIng_ee": "Added ingredients:",
+	"excludedIng_ee": "Ingredients to be excluded:",
     "removeIng_ee": "remove",
     "search_adv": "Search",
 	"search": "Search for a recipe...",
@@ -27,5 +29,6 @@
     "offlinesearchnoing" : "Ingredient search has no input.",
     "searchlabel": "Enter keyword:",
     "contact": "Contact",
-    "popup": "Here we can find recipes by the ingredients. Think of an ingredient and add it. After that there it is possible to add more ingredients or submit."
+    "popup": "Insert the ingredients you wish to be included in the recipes one by one.",
+	"popup2": "Insert the ingredients you do not wish to be included in the recipes one by one."
 }

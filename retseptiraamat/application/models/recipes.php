@@ -253,7 +253,7 @@ class Recipes extends CI_Model {
     }
 	
 	
-	public function ingredientsearch($ingredients) {
+	public function ingredientsearch($ingredients, $exclude) {
         $cookie_lang = "lang";
         $lang = "ee";
         if(isset($_COOKIE[$cookie_lang])) {
@@ -266,8 +266,20 @@ class Recipes extends CI_Model {
 		else if ($lang == "en") {
             $dbs = "v_retseptideng_full";
         }
-		$size = sizeof($ingredients);
-		$sql = "SELECT _recipeID, _title, _imgpath, _text FROM ".$dbs." WHERE _ingredient IN ('".implode("', '", $ingredients)."') GROUP BY _recipeID HAVING COUNT(*)=".$size;
+		
+		if(isset($ingredients) and !empty($ingredients)) {
+			$size = sizeof($ingredients);
+			if(isset($exclude) and !empty($exclude)) {
+				$sql = "SELECT _recipeID, _title, _imgpath, _text FROM ".$dbs." WHERE _ingredient IN ('".implode("', '", $ingredients)."') AND _recipeID NOT IN (SELECT _recipeID FROM ".$dbs." WHERE _ingredient IN ('".implode("', '", $exclude)."')) GROUP BY _recipeID HAVING COUNT(*)=".$size;
+			}
+			else {
+				$sql = "SELECT _recipeID, _title, _imgpath, _text FROM ".$dbs." WHERE _ingredient IN ('".implode("', '", $ingredients)."') GROUP BY _recipeID HAVING COUNT(*)=".$size;
+			}
+		}
+		else {
+			$sql = "SELECT _recipeID, _title, _imgpath, _text FROM ".$dbs." WHERE _ingredient NOT IN ('".implode("', '", $exclude)."') GROUP BY _recipeID";
+		}
+	
 		$query = $this->db->query($sql);
         return $query->result_array();
     }

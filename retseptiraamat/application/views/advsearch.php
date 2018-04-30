@@ -44,6 +44,23 @@
 		<br />
 		<label  data-tag="addedIng_ee"></label>
 		<ul id="addedIngList_ee" ></ul>
+		<br />
+		
+		<label  data-tag="excludeIng_ee"></label><br />
+        <a class="trigger_popup_fricc"><img src="<?php echo base_url(); ?>application/assets/proov2.png" alt="hint"></a>
+        <div class="hover_bkgr_fricc">
+            <span class="helper"></span>
+            <div>
+                <div class="popupCloseButton">x</div>
+                <p data-tag="popup2"></p>
+            </div>
+        </div>
+		<input type="text" title="excludeIngredient" id="excludeIngredient_ee" name="excludeIngredient_ee" data-tag="sisesta_aine" />
+		<button type="button" id="excludeIng_ee"  data-tag="addbtn_ee"></button><br />
+		<br />
+		<label  data-tag="excludedIng_ee"></label>
+		<ul id="excludedIngList_ee" ></ul>
+		
         <button type="button" id="searchIngBtn"  data-tag="search_adv"></button><br />
         <input type="submit" class="inputhidden" value="Submit" />
 		<br />

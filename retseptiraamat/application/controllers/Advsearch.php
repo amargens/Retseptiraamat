@@ -65,7 +65,8 @@ class Advsearch extends CI_Controller {
 		
 		$data['title'] = 'advsearch';
         $this->load->model('recipes');
-        $ingredients = $this->input->post('ingredient_ee');		
+        $ingredients = $this->input->post('ingredient_ee');
+		$exclude = $this->input->post('ex_ingredient_ee');		
 		
 		$cookie_lang = "lang";
         $lang = "ee";
@@ -73,8 +74,8 @@ class Advsearch extends CI_Controller {
             $lang = $_COOKIE[$cookie_lang];
         }
 
-        if(isset($ingredients) and !empty($ingredients)){
-            $data['recipes'] = $this->recipes->ingredientsearch($ingredients);
+        if(isset($ingredients) and !empty($ingredients) or isset($exclude) and !empty($exclude)){
+            $data['recipes'] = $this->recipes->ingredientsearch($ingredients, $exclude);
             if (empty($data['recipes'])) {
                 if ($lang == "ee") {
                     $this->session->set_flashdata('eba_otsing', 'Selliste koostisosadega retsepte ei leitud.');

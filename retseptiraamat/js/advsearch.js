@@ -19,6 +19,10 @@ window.onload = function() {
     document.getElementById('addIng_ee').addEventListener("click", function(){
         addIngridient();
     });
+	
+	document.getElementById('excludeIng_ee').addEventListener("click", function(){
+        excludeIngridient();
+    });
     
     document.getElementById('offlinealert').addEventListener("click", function(){
         $.ajax({
@@ -89,6 +93,42 @@ function addIngridient() {
     document.getElementById('addIngredient_ee').value = "";
     
     document.getElementById('addedIngList_ee').appendChild(addedIng);
+}
+
+function excludeIngridient() {
+    
+    var excludedIng = document.createElement("li");
+    excludedIng.className = "excludedIng";
+    
+    var ex_ingredient = document.createElement("p");
+    ex_ingredient.className = "ex_ingredient";
+    ex_ingredient.innerHTML = document.getElementById('excludeIngredient_ee').value;
+    
+    var inputExIng = document.createElement("input");
+    inputExIng.className = "inputhidden";
+    inputExIng.name = "ex_ingredient_ee[]";
+    inputExIng.value = document.getElementById('excludeIngredient_ee').value;
+    
+    var removeExIng = document.createElement('button');
+    if (document.getElementById('sel-lang').value === "ee") {
+        removeExIng.innerHTML = 'Eemalda';
+    } else if (document.getElementById('sel-lang').value === "en") {
+        removeExIng.innerHTML = 'Remove';
+    }
+    removeExIng.setAttribute("data-tag", "removeIng_ee");
+    removeExIng.className = "removeExIng";
+    removeExIng.onclick = function(){
+        document.getElementById('excludedIngList_ee').removeChild(excludedIng);
+        return false;
+    };
+    
+    excludedIng.appendChild(ex_ingredient);
+    excludedIng.appendChild(inputExIng);
+    excludedIng.appendChild(removeExIng);
+    
+    document.getElementById('excludeIngredient_ee').value = "";
+    
+    document.getElementById('excludedIngList_ee').appendChild(excludedIng);
 }
 
 function searchIngCon(){
