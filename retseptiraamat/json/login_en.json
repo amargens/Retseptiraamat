@@ -15,5 +15,7 @@
     "loginGgl": "Log in with Google",
     "usernameLabel": "Username",
     "passwordLabel": "Password",
+    "passwrdLabel": "Password",
+    "googleLabel": "Google",
     "contact": "Contact"
 }

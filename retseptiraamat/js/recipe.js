@@ -12,7 +12,7 @@ window.onload = function() {
     document.getElementById('sel-lang').addEventListener("change", function(){
         setCookie('lang', document.getElementById('sel-lang').value, 1);
         changeLang(document.getElementById('sel-lang').value);
-        document.getElementById('sel-lang').action = "../application/controllers/home/index"
+        document.getElementById('sel-lang').action = "../application/controllers/home/index";
         document.formlang.submit();
     });
     
@@ -49,7 +49,11 @@ function Translate() {
                                 var elem = allDom[i];
                                 var key = elem.getAttribute(_self.attribute);
                                 if ( key === 'favbtn'){
-                                    elem.innerHTML = LngObject[key] + " " + elem.innerHTML;
+                                    if (elem.innerHTML.slice(0,1) !== "<"){
+                                        elem.innerHTML = LngObject[key] + " " + elem.innerHTML.slice(elem.innerHTML.indexOf(" ")+1);;
+                                    } else {
+                                        elem.innerHTML = LngObject[key] + " " + elem.innerHTML;
+                                    }
                                 }else if(key !== null) {
                                     console.log(key);
                                     elem.innerHTML = LngObject[key]  ;

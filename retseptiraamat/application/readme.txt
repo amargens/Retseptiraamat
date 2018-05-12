@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `kasutajad` (
   `favourites` char(50) DEFAULT NULL,
   `kasutajanimi` char(255) NOT NULL,
    `parool` char(255) NOT NULL,
-   `idnum` char(50) DEFAULT NULL,
+   `gnum` char(50) DEFAULT NULL,
    `registr_kuup` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
@@ -81,11 +81,11 @@ SET favourites = in_fav
 WHERE id = in_recipeID;
 END//
 
-DROP PROCEDURE IF EXISTS `p_idnum`;//
-CREATE PROCEDURE `p_idnum` (in_recipeID int(11), in_idnum char(50))
+DROP PROCEDURE IF EXISTS `p_gnum`;//
+CREATE PROCEDURE `p_gnum` (in_recipeID int(11), in_gnum char(50))
 BEGIN
 UPDATE kasutajad
-SET idnum = in_idnum
+SET gnum = in_gnum
 WHERE id = in_recipeID;
 END//
 

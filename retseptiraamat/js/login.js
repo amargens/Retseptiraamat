@@ -14,6 +14,33 @@ window.onload = function() {
         changeLang(document.getElementById('sel-lang').value);
     });
     
+    document.getElementById('formlogin').addEventListener("submit", function(e){
+        if (document.getElementById("kasutajanimi").value !== "") {
+            if (document.getElementById("passwrdLabel").checked) {
+                document.getElementById('formlogin').action = "login";
+                if (document.getElementById("parool").value !== "") {
+                    return true;
+                }
+            } else if (document.getElementById("googleLabel").checked) {
+                document.getElementById('formlogin').action = "loginGoogle";
+                return true;
+            }
+        }
+    });
+    
+    document.getElementById('passwrdLabel').addEventListener("change", function(){
+        if (document.getElementById("passwrdLabel").checked) {
+            document.getElementById("parooldiv").className = "form-group";
+            document.getElementById("parool").disabled = false;
+        }
+    });
+    document.getElementById('googleLabel').addEventListener("change", function(){
+        if (document.getElementById("googleLabel").checked) {
+            document.getElementById("parooldiv").className = "form-group inputdisabled";
+            document.getElementById("parool").disabled = true;
+        }
+    });
+    
     sendstats();
 }
 

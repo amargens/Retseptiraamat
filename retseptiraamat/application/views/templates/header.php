@@ -89,4 +89,16 @@
     <?php if($this->session->flashdata('lisa_error')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('lisa_error').'</p>'; ?>
     <?php endif; ?>
+    
+    <?php if($this->session->flashdata('kasutaja_google')): ?>
+        <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('kasutaja_google').'</p>'; ?>
+    <?php endif; ?>
+    
+    <?php if($this->session->flashdata('changeerror')): ?>
+        <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('changeerror').'</p>'; ?>
+    <?php endif; ?>
+    
+    <?php if($this->session->flashdata('changesuccess')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('changesuccess').'</p>'; ?>
+    <?php endif; ?>
 </div>

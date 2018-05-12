@@ -1,13 +1,4 @@
 
-<div class="container inputhidden" id="changeerror">
-    <p class="alert alert-danger" data-tag="changeerror"></p>
-</div>
-<div class="container inputhidden" id="inputerror">
-    <p class="alert alert-danger" data-tag="inputerror"></p>
-</div>
-<div class="container inputhidden" id="changesuccess">
-    <p class="alert alert-success" data-tag="changesuccess"></p>
-</div>
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -29,7 +20,7 @@
         </div>
         
         <div class="col-md-9">
-            <div class="" id="favrescont">
+            <div class="<?php if ($menu === "savedrec"){echo "";} else {echo "inputhidden";} ?>" id="favrescont">
                 <h3 data-tag="favres"></h3>
                 
                 <?php if ($favrecipes === NULL): ?>
@@ -64,7 +55,7 @@
             </div>
             
             
-            <div class="inputhidden" id="userrescont">
+            <div class="<?php if ($menu === "ownrec"){echo "";} else {echo "inputhidden";} ?>" id="userrescont">
                 <h3 data-tag="userres"></h3>
                 
                 <?php if ($userrecipes === NULL): ?>
@@ -100,14 +91,30 @@
             
             
             
-            <div class="inputhidden" id="accsetcont">
+            <div class="<?php if ($menu === "account"){echo "";} else {echo "inputhidden";} ?>" id="accsetcont">
                 <h3 data-tag="accset"></h3>
                 
-                <div class="col-md-8">
-                    <input type="text" class="form-control" id="idnuminput" data-tag="changeidnum" placeholder="Recipient's username">
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-outline-secondary" id="idnumbtn" type="button" data-tag="changesave"></button>
+                <div class="row">
+                    <form method="post" id="formlinkgoogle" name="formlinkgoogle" accept-charset="utf-8" action="<?php if ($gnum === FALSE){echo base_url().'index.php/account/linkGoogle';} else {echo base_url().'index.php/account/unlinkGoogle';} ?>">
+                        <div class="col-md-8">
+                            <?php if ($gnum === FALSE): ?>
+                                <div id="linkgoogle" class="">
+                                    <h4 data-tag="linkgoogle"></h4>
+                                </div>
+                            <?php else: ?>
+                                <div id="linkedgoogle" class="">
+                                    <h4 data-tag="linkedgoogle"></h4>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="col-md-4">
+                            <?php if ($gnum === FALSE): ?>
+                                <button class="btn btn-outline-secondary" id="googlebtn" type="button" data-tag="linkbtn"></button>
+                            <?php else: ?>
+                                <button class="btn btn-outline-secondary" id="googlebtn" type="button" data-tag="linkedbtn"></button>
+                            <?php endif; ?>
+                        </div>
+                    <?php echo form_close(); ?>
                 </div>
                 
             </div>

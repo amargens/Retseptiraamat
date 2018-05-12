@@ -15,5 +15,7 @@
     "loginGgl": "Logi sisse Google kaudu",
     "usernameLabel": "Kasutajanimi",
     "passwordLabel": "Parool",
+    "passwrdLabel": "Parool",
+    "googleLabel": "Google",
     "contact": "Kontakt"
 }

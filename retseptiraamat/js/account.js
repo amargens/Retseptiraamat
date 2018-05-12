@@ -12,7 +12,7 @@ window.onload = function() {
     document.getElementById('sel-lang').addEventListener("change", function(){
         setCookie('lang', document.getElementById('sel-lang').value, 1);
         changeLang(document.getElementById('sel-lang').value);
-        document.getElementById('sel-lang').action = "../application/controllers/account/index"
+        document.getElementById('sel-lang').action = "../application/controllers/account/index";
         document.formlang.submit();
     });
     
@@ -34,32 +34,12 @@ window.onload = function() {
         document.getElementById('accsetcont').className = "";
     });
     
-    document.getElementById('idnumbtn').addEventListener("click", function(){
-        if (document.getElementById('idnuminput').value == ""){
-            document.getElementById('inputerror').className = "container";
-            document.getElementById('changeerror').className = "container inputhidden";
-            document.getElementById('changesuccess').className = "container inputhidden";
-        } else {
-            document.getElementById('inputerror').className = "container inputhidden";
-            var keyVals = { idnum : document.getElementById('idnuminput').value };
-            $.ajax({
-                type: "POST",
-                url: "saveidnum",
-                data: keyVals,
-                dataType: "text",
-                success: function(msg){
-                    
-                    document.getElementById('changesuccess').className = "container";
-                    document.getElementById('changeerror').className = "container inputhidden";
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    
-                    document.getElementById('changeerror').className = "container";
-                    document.getElementById('changesuccess').className = "container inputhidden";
-                }
-            });
-        }
+    document.getElementById('googlebtn').addEventListener("click", function(){
+        
+        document.formlinkgoogle.submit();
+        
     });
+    
     
     sendstats();
 }
@@ -94,7 +74,11 @@ function Translate() {
                                 var elem = allDom[i];
                                 var key = elem.getAttribute(_self.attribute);
                                 if ( key === 'favbtn'){
-                                    elem.innerHTML = LngObject[key] + " " + elem.innerHTML;
+                                    if (elem.innerHTML.slice(0,1) !== "<"){
+                                        elem.innerHTML = LngObject[key] + " " + elem.innerHTML.slice(elem.innerHTML.indexOf(" ")+1);;
+                                    } else {
+                                        elem.innerHTML = LngObject[key] + " " + elem.innerHTML;
+                                    }
                                 }else if ( key === 'changeidnum'){
                                     elem.placeholder = LngObject[key];
                                 }else if(key !== null) {
