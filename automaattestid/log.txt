@@ -1,0 +1,201 @@
+Running 'kasutaja loomine'
+1.Trying to execute open on /index.php/users/register/... Success
+2.Trying to find name=nimi... Success
+3.Trying to execute type on name=nimi with value kasutaja... Success
+4.Trying to execute clickAt on name=email with value 106,14... Success
+5.Trying to execute type on name=email with value kasutaja@example.com... Success
+6.Trying to execute clickAt on name=kasutajanimi with value 103,15... Success
+7.Trying to execute type on name=kasutajanimi with value testnewuser... Success
+8.Trying to execute clickAt on name=parool with value 82,18... Success
+9.Trying to execute type on name=parool with value testpass... Success
+10.Trying to execute clickAt on name=parool2 with value 103,22... Success
+11.Trying to execute type on name=parool2 with value testpass... Success
+12.Trying to execute clickAt on css=button.btn.btn-primary with value 52,14... Success
+13.Trying to execute assertText on css=p.alert.alert-success with value Kasutaja registreeritud, võid logida sisse!... Success
+14.Trying to execute clickAt on //a[contains(text(),'Logi sisse')] with value 48,21... Success
+15.Trying to execute type on id=kasutajanimi with value testnewuser... Success
+16.Trying to execute type on id=parool with value testpass... Success
+17.Trying to execute clickAt on id=submitlogin with value 49,5... Success
+18.Trying to execute assertText on css=p.alert.alert-success with value Kasutaja sisselogimine õnnestus!... Success
+19.Trying to execute clickAt on //a[contains(text(),'Logi välja')] with value 51,30... Success
+'kasutaja loomine' completed successfully
+Running 'kasutaja loomine võetud andmetega'
+1.Trying to execute open on /index.php/users/register/... Success
+2.Trying to execute clickAt on name=nimi with value 322,16... Success
+3.Trying to execute type on name=nimi with value testuser... Success
+4.Trying to execute type on name=email with value testuser1@example.com... Success
+5.Trying to execute type on name=kasutajanimi with value testuser... Success
+6.Trying to execute clickAt on name=parool with value 98,13... Success
+7.Trying to execute type on name=parool with value testpass... Success
+8.Trying to execute type on name=parool2 with value testpass... Success
+9.Trying to execute clickAt on css=button.btn.btn-primary with value 50,21... Success
+10.Trying to execute assertText on css=p with value Kasutajanimi on võetud. Mõtle välja mõni teine kasutajanimi.... Success
+11.Trying to execute clickAt on name=nimi with value 145,18... Success
+12.Trying to execute type on name=nimi with value testuser1... Success
+13.Trying to execute type on name=email with value testuser@example.com... Success
+14.Trying to execute type on name=kasutajanimi with value testuser1... Success
+15.Trying to execute type on name=parool with value testpass... Success
+16.Trying to execute type on name=parool2 with value testpass... Success
+17.Trying to execute clickAt on css=button.btn.btn-primary with value 53,15... Success
+18.Trying to execute assertText on css=p with value Email on võetud. Kasuta mõnda teist emaili.... Success
+19.Trying to execute clickAt on name=nimi with value 78,20... Success
+20.Trying to execute type on name=nimi with value testuser... Success
+21.Trying to execute type on name=email with value testuser@example.com... Success
+22.Trying to execute type on name=kasutajanimi with value testuser... Success
+23.Trying to execute type on name=parool with value testpass... Success
+24.Trying to execute type on name=parool2 with value testpass... Success
+25.Trying to execute clickAt on css=button.btn.btn-primary with value 46,12... Success
+26.Trying to execute assertText on css=p with value Kasutajanimi on võetud. Mõtle välja mõni teine kasutajanimi.... Success
+27.Trying to execute assertText on //p[2] with value Email on võetud. Kasuta mõnda teist emaili.... Success
+'kasutaja loomine võetud andmetega' completed successfully
+Running 'koostisosade otsing'
+1.Trying to execute open on /index.php/advsearch/index... Success
+2.Trying to execute clickAt on id=addIngredient_ee with value 138,0... Success
+3.Trying to execute type on id=addIngredient_ee with value vesi... Success
+4.Trying to execute clickAt on id=addIng_ee with value 7,9... Success
+5.Trying to execute mouseOver on id=addIng_ee... Success
+6.Trying to execute mouseOut on id=addIng_ee... Success
+7.Trying to execute clickAt on id=searchIngBtn with value 16,5... Success
+8.Trying to execute pause on with value 2000... Success
+9.Trying to execute assertText on css=td with value Kõrvitsasupp... Success
+10.Trying to execute assertText on css=#12 > td with value Punane vitamiinismuuti... Success
+11.Trying to execute clickAt on id=addIngredient_ee with value 117,16... Success
+12.Trying to execute type on id=addIngredient_ee with value vesi... Success
+13.Trying to execute clickAt on id=addIng_ee with value 16,14... Success
+14.Trying to execute mouseOver on id=addIng_ee... Success
+15.Trying to execute mouseOut on id=addIng_ee... Success
+16.Trying to execute clickAt on id=addIngredient_ee with value 119,17... Success
+17.Trying to execute type on id=addIngredient_ee with value õun... Success
+18.Trying to execute clickAt on id=addIng_ee with value 12,11... Success
+19.Trying to execute mouseOver on id=addIng_ee... Success
+20.Trying to execute mouseOut on id=addIng_ee... Success
+21.Trying to execute clickAt on id=searchIngBtn with value 26,9... Success
+22.Trying to execute pause on with value 2000... Success
+23.Trying to execute assertText on css=td with value Punane vitamiinismuuti... Success
+24.Trying to execute clickAt on id=addIngredient_ee with value 84,9... Success
+25.Trying to execute type on id=addIngredient_ee with value vesi... Success
+26.Trying to execute clickAt on id=addIng_ee with value 16,16... Success
+27.Trying to execute clickAt on id=excludeIngredient_ee with value 71,11... Success
+28.Trying to execute type on id=excludeIngredient_ee with value õun... Success
+29.Trying to execute clickAt on id=excludeIng_ee with value 8,14... Success
+30.Trying to execute mouseOver on id=excludeIng_ee... Success
+31.Trying to execute mouseOut on id=excludeIng_ee... Success
+32.Trying to execute clickAt on id=searchIngBtn with value 17,7... Success
+33.Trying to execute pause on with value 3000... Success
+34.Trying to execute assertText on css=td with value Kõrvitsasupp... Success
+'koostisosade otsing' completed successfully
+Running 'lemmikutesse lisamine'
+1.Trying to execute open on /index.php/users/login... Success
+2.Trying to execute clickAt on id=kasutajanimi with value 317,10... Success
+3.Trying to execute type on id=kasutajanimi with value testuser... Success
+4.Trying to execute clickAt on id=parool with value 91,19... Success
+5.Trying to execute type on id=parool with value testpass... Success
+6.Trying to execute clickAt on id=submitlogin with value 44,19... Success
+7.Trying to execute clickAt on //a[contains(text(),'Otsing')] with value 32,33... Success
+8.Trying to execute clickAt on xpath=(//a[contains(text(),'Loe Rohkem')])[2] with value 56,16... Success
+9.Trying to execute clickAt on id=favbtn with value 50,13... Success
+10.Trying to execute clickAt on //a[contains(text(),'Konto')] with value 27,25... Success
+11.Trying to execute assertText on css=h4 with value Kõrvitsasupp... Success
+12.Trying to execute clickAt on css=button.favbtnon with value 43,17... Success
+13.Trying to execute clickAt on //a[contains(text(),'Logi välja')] with value 42,19... Success
+'lemmikutesse lisamine' completed successfully
+Running 'logi sisse ja välja'
+1.Trying to execute open on /index.php/users/login... Success
+2.Trying to execute type on id=kasutajanimi with value testuser... Success
+3.Trying to execute type on id=parool with value testpass... Success
+4.Trying to execute clickAt on id=submitlogin with value 39,13... Success
+5.Trying to execute assertText on css=p.alert.alert-success with value Kasutaja sisselogimine õnnestus!... Success
+6.Trying to execute clickAt on //a[contains(text(),'Logi välja')] with value 48,17... Success
+7.Trying to execute assertText on css=p.alert.alert-success with value Kasutaja väljalogimine õnnestus!... Success
+'logi sisse ja välja' completed successfully
+Running 'navigeerimine ja keelte vahetamine'
+1.Trying to execute open on /index.php/home/index... Success
+2.Trying to execute clickAt on css=li > a with value 33,25... Success
+3.Trying to execute assertText on css=h2 with value Avaleht... Success
+4.Trying to execute clickAt on id=sel-lang with value 44,10... Success
+5.Trying to execute select on id=sel-lang with value label=ENG... Success
+6.Trying to execute clickAt on id=sel-lang with value -1074,-225... Success
+7.Trying to execute assertText on css=h2 with value Home... Success
+8.Trying to execute clickAt on //a[contains(text(),'Search')] with value 30,20... Success
+9.Trying to execute assertText on css=h2 with value Search recipes by title... Success
+10.Trying to execute clickAt on id=sel-lang with value 59,9... Success
+11.Trying to execute select on id=sel-lang with value label=EST... Success
+12.Trying to execute clickAt on id=sel-lang with value -1083,-225... Success
+13.Trying to execute assertText on css=h2 with value Otsi retsepte pealkirja järgi... Success
+14.Trying to execute clickAt on //a[contains(text(),'Retsepti kaart')] with value 66,26... Success
+15.Trying to execute assertText on css=h2 with value Retsepti kaart... Success
+16.Trying to execute clickAt on id=sel-lang with value 55,24... Success
+17.Trying to execute select on id=sel-lang with value label=ENG... Success
+18.Trying to execute clickAt on id=sel-lang with value -1064,-225... Success
+19.Trying to execute assertText on css=h2 with value Recipe map... Success
+20.Trying to execute clickAt on //a[contains(text(),'Statistics')] with value 57,29... Success
+21.Trying to execute assertText on id=header with value Statistics... Success
+22.Trying to execute clickAt on id=sel-lang with value 51,18... Success
+23.Trying to execute select on id=sel-lang with value label=EST... Success
+24.Trying to execute clickAt on id=sel-lang with value -1083,-225... Success
+25.Trying to execute assertText on id=header with value Statistika... Success
+26.Trying to execute clickAt on id=sel-lang with value 33,15... Success
+27.Trying to execute select on id=sel-lang with value label=ENG... Success
+28.Trying to execute clickAt on id=sel-lang with value -999,-225... Success
+29.Trying to execute clickAt on //a[contains(text(),'Register')] with value 42,31... Success
+30.Trying to execute assertText on css=h2 with value Register... Success
+31.Trying to execute clickAt on id=sel-lang with value 67,9... Success
+32.Trying to execute select on id=sel-lang with value label=EST... Success
+33.Trying to execute clickAt on id=sel-lang with value -1035,-225... Success
+34.Trying to execute assertText on css=h2 with value Kasutaja loomine... Success
+35.Trying to execute clickAt on //a[contains(text(),'Logi sisse')] with value 58,28... Success
+36.Trying to execute type on id=kasutajanimi with value mdengo... Success
+37.Trying to execute type on id=parool with value parool... Success
+38.Trying to execute assertText on css=h2 with value Sisselogimine... Success
+39.Trying to execute clickAt on id=sel-lang with value 63,23... Success
+40.Trying to execute select on id=sel-lang with value label=ENG... Success
+41.Trying to execute clickAt on id=sel-lang with value -1009,-225... Success
+42.Trying to execute assertText on css=h2 with value Login... Success
+43.Trying to execute type on id=kasutajanimi with value testuser... Success
+44.Trying to execute type on id=parool with value testpass... Success
+45.Trying to execute clickAt on id=submitlogin with value 41,15... Success
+46.Trying to execute clickAt on //a[contains(text(),'Create Recipe')] with value 64,26... Success
+47.Trying to execute assertText on css=h2 with value Create recipe in estonian... Success
+48.Trying to execute clickAt on id=sel-lang with value 65,17... Success
+49.Trying to execute select on id=sel-lang with value label=EST... Success
+50.Trying to execute clickAt on id=sel-lang with value -1083,-225... Success
+51.Trying to execute assertText on css=h2 with value Retsepti lisamine eesti keeles... Success
+52.Trying to execute clickAt on //a[contains(text(),'Konto')] with value 39,30... Success
+53.Trying to execute assertText on id=header with value Konto... Success
+54.Trying to execute clickAt on id=favres with value 93,19... Success
+55.Trying to execute assertText on css=h3 with value Salvestatud retseptid... Success
+56.Trying to execute clickAt on id=userres with value 63,22... Success
+57.Trying to execute assertText on css=#userrescont > h3 with value Teie retseptid... Success
+58.Trying to execute clickAt on id=accset with value 52,20... Success
+59.Trying to execute assertText on css=#accsetcont > h3 with value Konto seaded... Success
+60.Trying to execute clickAt on id=sel-lang with value 45,25... Success
+61.Trying to execute select on id=sel-lang with value label=ENG... Success
+62.Trying to execute clickAt on id=sel-lang with value -1074,-225... Success
+63.Trying to execute assertText on id=header with value Account... Success
+64.Trying to execute assertText on css=h3 with value Favourite recipes... Success
+65.Trying to execute clickAt on id=userres with value 57,25... Success
+66.Trying to execute assertText on css=#userrescont > h3 with value Your recipes... Success
+67.Trying to execute clickAt on id=accset with value 94,26... Success
+68.Trying to execute assertText on css=#accsetcont > h3 with value Account settings... Success
+69.Trying to execute clickAt on id=sel-lang with value 39,19... Success
+70.Trying to execute select on id=sel-lang with value label=EST... Success
+71.Trying to execute clickAt on id=sel-lang with value -1093,-225... Success
+72.Trying to execute clickAt on //a[contains(text(),'Logi välja')] with value 34,30... Success
+'navigeerimine ja keelte vahetamine' completed successfully
+Running 'otsing märksõna järgi'
+1.Trying to execute open on /index.php/advsearch/index... Success
+2.Trying to execute clickAt on id=search with value 175,18... Success
+3.Trying to execute type on id=search with value supp... Success
+4.Trying to execute clickAt on id=searchbtn with value 18,19... Success
+5.Trying to execute pause on with value 2000... Success
+6.Trying to execute assertText on css=td with value Kõrvitsasupp... Success
+'otsing märksõna järgi' completed successfully
+Running 'sisselogimine vale infoga'
+1.Trying to execute open on /index.php/users/login... Success
+2.Trying to execute clickAt on id=kasutajanimi with value 131,19... Success
+3.Trying to execute type on id=kasutajanimi with value ei_eksisteeri... Success
+4.Trying to execute clickAt on id=parool with value 72,11... Success
+5.Trying to execute type on id=parool with value parool... Success
+6.Trying to execute clickAt on id=submitlogin with value 51,23... Success
+7.Trying to execute assertText on css=p.alert.alert-danger with value Kasutaja sisselogimine ebaõnnestus!... Success
+'sisselogimine vale infoga' completed successfully
