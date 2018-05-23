@@ -40,6 +40,26 @@ window.onload = function() {
         
     });
     
+    document.getElementById('checkallrecipes').addEventListener("change", function(){
+        if (document.getElementById("checkallrecipes").checked) {
+            document.getElementById("checkallimg").className = "";
+            document.getElementById("accountbtndelall").className = "btn btn-danger";
+            document.getElementById("accountbtndelkeepall").className = "btn btn-danger inputhidden";
+        } else if (!document.getElementById("checkallrecipes").checked) {
+            document.getElementById("checkallimg").className = "inputhide";
+            document.getElementById("accountbtndelkeepall").className = "btn btn-danger";
+            document.getElementById("accountbtndelall").className = "btn btn-danger inputhidden";
+        }
+    });
+    
+    document.getElementById('changepassbegin').addEventListener("click", function(){
+        document.getElementById('changepass').className = "row ";
+    });
+    
+    document.getElementById('changepasscancel').addEventListener("click", function(){
+        document.getElementById('changepass').className = "row inputhidden";
+    });
+    
     
     sendstats();
 }
@@ -73,13 +93,13 @@ function Translate() {
                             for(var i =0; i < allDom.length; i++){
                                 var elem = allDom[i];
                                 var key = elem.getAttribute(_self.attribute);
-                                if ( key === 'favbtn'){
+                                if ( key === 'favbtn' || key === 'delbtn'){
                                     if (elem.innerHTML.slice(0,1) !== "<"){
                                         elem.innerHTML = LngObject[key] + " " + elem.innerHTML.slice(elem.innerHTML.indexOf(" ")+1);;
                                     } else {
                                         elem.innerHTML = LngObject[key] + " " + elem.innerHTML;
                                     }
-                                }else if ( key === 'changeidnum'){
+                                }else if ( key === 'changeidnum' || key === 'oldpass' || key === 'newpass'){
                                     elem.placeholder = LngObject[key];
                                 }else if(key !== null) {
                                     console.log(key);

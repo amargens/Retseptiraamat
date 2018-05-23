@@ -18,6 +18,13 @@ class Account extends CI_Controller {
         $data['favrecipes'] = $this->recipes->get_favrecipes();
         $data['userrecipes'] = $this->recipes->get_userrecipe();
         $data['gnum'] = $this->user_model->getgnum();
+        
+        if ($menu === 'account'){
+            $this->form_validation->set_rules('oldpass', 'Oldpass', 'required');
+            $this->form_validation->set_rules('oldpassagain', 'Oldpassagain', 'required');
+            $this->form_validation->set_rules('newpass', 'Newpass', 'required');
+            $this->form_validation-> run();
+        }
 
         echo '<script>';
         echo 'var title = ' . json_encode($data['title']) . ';';
@@ -34,7 +41,90 @@ class Account extends CI_Controller {
     public function favbtn($index = FALSE){
         $this->recipes->set_favourite($index);
         
-        redirect('/account/index');
+        redirect('/account/savedrec');
+    }
+    
+    public function ownbtndel($index = "all"){
+        $this->recipes->drop_recipes($index);
+        
+        if ($index === "all"){
+            redirect('/account/account');
+        } else {
+            redirect('/account/ownrec');
+        }
+        
+    }
+    
+    public function accountbtndel($recipes){
+        
+        if ($recipes === "all"){
+            $this->recipes->drop_recipes($recipes);
+        } else if ($recipes === "keepall"){
+            $this->recipes->keep_recipes();
+        }
+        
+        $this->user_model->drop_user();
+        
+        $this->session->unset_userdata('sisselogitud');
+        $this->session->unset_userdata('kasutaja_id');
+        $this->session->unset_userdata('kasutajanimi');
+        $this->session->unset_userdata('token');
+        
+        $cookie_lang = "lang";
+        $lang = "ee";
+        if(isset($_COOKIE[$cookie_lang])) {
+            $lang = $_COOKIE[$cookie_lang];
+        }
+        if ($lang == "ee") {
+            $this->session->set_flashdata('kasutaja_valjalogitud', 'Kasutaja konto kustutamine õnnestus!');
+        } else if ($lang == "en") {
+            $this->session->set_flashdata('kasutaja_valjalogitud', 'Account successfully removed!');
+        }
+        redirect('/users/login');
+    }
+    
+    public function changepassbtn(){
+        
+        $cookie_lang = "lang";
+        $lang = "ee";
+        if(isset($_COOKIE[$cookie_lang])) {
+            $lang = $_COOKIE[$cookie_lang];
+        }
+        
+        $oldpass = $this->input->post('oldpass');
+        $oldpassagain = $this->input->post('oldpassagain');
+        $newpass = $this->input->post('newpass');
+        
+        if ($oldpass === $oldpassagain){
+            
+            $md5oldpass = md5($oldpass);
+            if ($this->user_model->getoldpass() === $md5oldpass){
+                
+                $md5newpass = md5($newpass);
+                $this->user_model->savenewpass($md5newpass);
+                if ($lang == "ee") {
+                    $this->session->set_flashdata('changesuccess', 'Parooli vahetus õnnestus!');
+                } else if ($lang == "en") {
+                    $this->session->set_flashdata('changesuccess', 'Password change success!');
+                }
+                
+            } else {
+                if ($lang == "ee") {
+                    $this->session->set_flashdata('changeerror', 'Vana parool ei ühti olemas oleva parooliga!');
+                } else if ($lang == "en") {
+                    $this->session->set_flashdata('changeerror', "Old password doesn't match with existing!");
+                }
+            }
+            
+        } else {
+            if ($lang == "ee") {
+                $this->session->set_flashdata('changeerror', 'Vanad paroolid ei ühti!');
+            } else if ($lang == "en") {
+                $this->session->set_flashdata('changeerror', "Old passwords don't match !");
+            }
+        }
+        
+        redirect('/account/account');
     }
     
     public function sendstats(){

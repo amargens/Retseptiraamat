@@ -6,11 +6,11 @@
         <h2 data-tag="header"></h2>
         <div class="form-group">
         <label data-tag="nameLbl"></label>
-        <input type="text" class="form-control" name="nimi" data-tag="name" >
+        <input type="text" class="form-control" name="nimi" data-tag="name" required autofocus>
         </div>
         <div class="form-group">
             <label data-tag="emailLbl"></label>
-            <input type="email" class="form-control" name="email" data-tag="email" >
+            <input type="email" class="form-control" name="email" data-tag="email" required autofocus>
         </div>
         <div class="form-group">
             <label data-tag="usernameLbl"></label>
@@ -24,15 +24,15 @@
                 </div>
             </div>
             <br />
-            <input type="text" class="form-control" name="kasutajanimi" data-tag="username" >
+            <input type="text" class="form-control" name="kasutajanimi" data-tag="username" required autofocus>
         </div>
         <div class="form-group">
             <label data-tag="pswrdLbl"></label>
-            <input type="password" class="form-control" name="parool" data-tag="pswrd" >
+            <input type="password" class="form-control" name="parool" data-tag="pswrd" required autofocus>
         </div>
         <div class="form-group">
             <label data-tag="pswrdRLbl"></label>
-            <input type="password" class="form-control" name="parool2" data-tag="pswrdR" >
+            <input type="password" class="form-control" name="parool2" data-tag="pswrdR" required autofocus>
         </div>
         <button type="submit" class="btn btn-primary" data-tag="loginBtn"></button>
     </div>

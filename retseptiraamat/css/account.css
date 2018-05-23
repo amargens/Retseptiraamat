@@ -33,6 +33,19 @@
     background-color: #f4e242;
 }
 
+
+.space {
+    padding-top: 40px;
+}
+
+.inputhide {
+    opacity: 0;	
+}
+
+.ownbtndel {
+    background-color: #ff5722;
+}
+
 #menu {
     text-align: left;
 }

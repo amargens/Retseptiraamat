@@ -23,10 +23,10 @@
                     $fav = explode(',' ,$favourites[0]['favourites']);
                     $key = array_search ($index, $fav);
                     if ($key === FALSE) {
-                        echo "<button type='button' id='favbtn' data-tag='favbtn'><img src='../../../application/assets/ic_favorite_border_black_24dp.png' alt='like'></button><br />";
+                        echo "<button type='button' id='favbtn' class='btn btn-light' data-tag='favbtn'><img src='../../../application/assets/ic_favorite_border_black_24dp.png' alt='like'></button><br />";
                         echo "<input type='text' class='inputhidden' name='favbtn' value='off' />";
                     } else {
-                        echo "<button type='button' id='favbtn' class='favbtnon' data-tag='favbtn'><img src='../../../application/assets/ic_favorite_black_24dp.png' alt='like'></button><br />";
+                        echo "<button type='button' id='favbtn' class='btn btn-warning' data-tag='favbtn'><img src='../../../application/assets/ic_favorite_white_24dp.png' alt='like'></button><br />";
                         echo "<input type='text' class='inputhidden' name='favbtn' value='on' />";
                     }
                     ?>

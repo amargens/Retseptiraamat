@@ -8,7 +8,7 @@ praeguse lahenduse andmebaas
 DROP TABLE IF EXISTS `retseptid`;
 CREATE TABLE IF NOT EXISTS `retseptid` (
   `_recipeID` int(11) NOT NULL AUTO_INCREMENT,
-  `_userID` int(11) NOT NULL,
+  `_userID` int(11) DEFAULT NULL,
   `_title` char(50) NOT NULL,
   `_titleEng` char(50) DEFAULT NULL,
   `_imgpath` char(50) DEFAULT NULL,

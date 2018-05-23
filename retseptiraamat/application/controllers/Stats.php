@@ -8,7 +8,7 @@ class Stats extends CI_Controller {
     }
     
     public function index() {
-
+        ob_start();
         $data['title'] = 'stats';
         $data['checkBrowser'] = $this->recipes->get_statsbrowser();
         $data['getTime'] = $this->recipes->get_statstime();

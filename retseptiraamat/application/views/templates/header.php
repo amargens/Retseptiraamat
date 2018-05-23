@@ -44,7 +44,7 @@
                 <li><a href="<?php echo base_url();?>index.php/stats/" data-tag="stats"></a> </li>
                 <?php if(!$this->session->userdata('sisselogitud')) : ?>
                     <li><a href="<?php echo base_url();?>index.php/users/login" data-tag="login"></a> </li>
-                    <li><a href="<?php echo base_url();?>index.php/users/register/" data-tag="register"></a> </li>
+                    <li><a href="<?php echo base_url();?>index.php/users/register" data-tag="register"></a> </li>
                 <?php endif; ?>
                 <?php if($this->session->userdata('sisselogitud')) : ?>
                     <li><a href="<?php echo base_url();?>index.php/create/" data-tag="create"></a> </li>

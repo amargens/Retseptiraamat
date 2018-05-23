@@ -229,6 +229,8 @@ class Recipes extends CI_Model {
         
     }
     
+    
+    
     public function keysearch($key) {
         $cookie_lang = "lang";
         $lang = "ee";
@@ -373,6 +375,73 @@ class Recipes extends CI_Model {
             return NULL;
         }
         return $qarray;
+    }
+    
+    public function keep_recipes() { 
+        $recs = $this->get_userrecipe();
+        if ($recs == NULL){
+            return NULL;
+        }
+        $recipes = array();
+        foreach ($recs as $rec) {
+            array_push($recipes, $rec['_recipeID']);
+        }
+        $recs = implode(",",$recipes);
+        
+        foreach (explode(',' ,$recs) as $rec) {
+            $userid = $this->session->userdata('kasutaja_id');
+            $sql = "UPDATE retseptid SET _userID = NULL WHERE _recipeID = ? AND _userID = ?;";
+            $this->db->query($sql, array($rec, $userid));
+        }
+        
+    }
+    
+    public function drop_recipes($recs) { //one rec "num" and more "num,num,num"
+        //kui retseptid on favourites all, siis sealt ka maha
+        if ($recs === "all"){
+            $recs = $this->get_userrecipe();
+            if ($recs == NULL){
+                return NULL;
+            }
+            $recipes = array();
+            foreach ($recs as $rec) {
+                array_push($recipes, $rec['_recipeID']);
+            }
+            $recs = implode(",",$recipes);
+        }
+        $this->drop_file($recs);
+        $this->drop_ingredients($recs);
+        $sql = "DELETE FROM retseptid WHERE `_recipeID` IN (" . implode(',', array_map('intval', explode(',' ,$recs))) . ")";
+        
+        $this->db->query($sql);
+        foreach (explode(',' ,$recs) as $rec) {
+            $userid = $this->session->userdata('kasutaja_id');
+            $favs = $this->get_favourites($userid);
+            if (in_array($rec, explode(',' ,$favs[0]['favourites']) ) ){
+                $this->set_favourite($rec);
+            }
+        }
+        
+    }
+    
+    public function drop_ingredients($recs) {
+        
+        $sql = "DELETE FROM toiduained WHERE `_recipeID` IN (" . implode(',', array_map('intval', explode(',' ,$recs))) . ")";
+        $this->db->query($sql);
+    
+    }
+    
+    public function drop_file($recs) {
+        
+        $sql = "SELECT _imgpath FROM v_retseptid WHERE `_recipeID` IN (" . implode(',', array_map('intval', explode(',' ,$recs))) . ")";
+        $files = $this->db->query($sql)->result_array();
+        foreach ($files as $file) {
+            $destination = 'application'. DIRECTORY_SEPARATOR .'assets'. DIRECTORY_SEPARATOR .'recipe_img'. DIRECTORY_SEPARATOR;
+            $target = $destination.$file['_imgpath'];
+            if(file_exists($target)) {
+                unlink($target);
+            }
+        }
     }
 }
 ?>
